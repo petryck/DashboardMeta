@@ -109,5 +109,5 @@ app.get('/login', (req, res) => {
 
 
 server.listen(port, function () {
-    console.log(`Servidor Carregado ${server.address().port}`);
+    console.log(`Servidor Carregado http://localhost:${server.address().port}`);
 });
