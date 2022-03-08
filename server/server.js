@@ -17,7 +17,7 @@ const port = 3560
 
 const io = geckos()
 app.use(cors())
-app.use('/', express.static(path.join(__dirname, '../client')))
+app.use('/', express.static(path.join(__dirname, '../public')))
 
 var connection = mysql.createConnection({
   host: "ads-con.csvfil6euj3s.sa-east-1.rds.amazonaws.com",
