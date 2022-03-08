@@ -115,6 +115,9 @@ body{
 }
 
 .progress{
+    position: relative;
     height: 2rem !important;
+    width: 300px !important;
+    right: -250px !important;
     border-radius: 10px !important;
 }
