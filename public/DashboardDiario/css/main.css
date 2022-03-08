@@ -4,4 +4,75 @@
 body{
     font-family: 'Montserrat';
     font-size: 14px;
+    background-color: #212121 ;
+}
+
+.barraMenu{
+    width: 20px;
+    height: 100%;
+    padding: 10px;
+    margin: 0px;
+    background-color: rgb(255,0,0);
+    border-radius: 6px;
+    transition: width 0.5s;
+    cursor: pointer;
+}
+
+.Lateral > .active{
+    transition: width 0.5s;
+    width: 400px;
+}
+
+.botaoMenu{
+    color: rgb(249,249,249);
+}
+
+.DiasLateral{
+    text-align: -webkit-right;
+}
+
+.NumeroDias{
+    width: 50px;
+    height: 50px;
+    margin-bottom: 5px;
+    background-color: rgb(249,249,249);
+    border-radius: 6px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    transition: width 0.5s;
+    cursor: pointer;
+    
+}
+
+/* .NumeroDias:hover{
+    width: 130px;
+    background-color: #ff0101;
+    color: #fffefe;
+} */
+
+.NomeMes{
+    opacity: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.NumeroDias > .active{
+    transition: opacity 1.4s;
+    opacity: 1;
+    color: rgb(249,249,249);
+}
+
+.NomeDia{
+    opacity: 0;
+    font-size: 12px;
+    position: absolute;
+    margin-top: 27px;
+    margin-left: -75px;
+}
+
+.DiasLateral > .active{
+    width: 130px;
+    background-color: rgb(255,0,0);
+    color: rgb(249,249,249);
 }

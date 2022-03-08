@@ -30,3 +30,26 @@ user_info = JSON.parse(localStorage.getItem("info_usuario"));
 
     })
 })
+
+/*DASHBOARD DIARIO*/
+
+$(document).on('click', '.NumeroDias', function(e){
+
+  $('.NumeroDias').removeClass('active');
+  $('.NomeMes').removeClass('active');
+  $('.NomeDia').removeClass('active');
+
+  $(this).addClass('active');
+  $(this).find('.NomeMes').addClass('active');
+  $(this).find('.NomeDia').addClass('active');
+})
+
+$(document).on('click', '.barraMenu', function(e){
+
+  if($(this).hasClass('active')){
+    $(this).removeClass('active');
+  }
+  else{
+    $(this).addClass('active');
+  }
+})
