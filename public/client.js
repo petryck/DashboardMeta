@@ -44,12 +44,12 @@ $(document).on('click', '.NumeroDias', function(e){
   $(this).find('.NomeDia').addClass('active');
 })
 
-$(document).on('click', '.barraMenu', function(e){
+// $(document).on('click', '.barraMenu', function(e){
 
-  if($(this).hasClass('active')){
-    $(this).removeClass('active');
-  }
-  else{
-    $(this).addClass('active');
-  }
-})
+//   if($(this).hasClass('active')){
+//     $(this).removeClass('active');
+//   }
+//   else{
+//     $(this).addClass('active');
+//   }
+// })

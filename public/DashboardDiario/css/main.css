@@ -4,10 +4,10 @@
 body{
     font-family: 'Montserrat';
     font-size: 14px;
-    background-color: #212121 ;
+    background-color: rgb(255,255,255);
 }
 
-.barraMenu{
+/* .barraMenu{
     width: 20px;
     height: 100%;
     padding: 10px;
@@ -25,7 +25,7 @@ body{
 
 .botaoMenu{
     color: rgb(249,249,249);
-}
+} */
 
 .DiasLateral{
     text-align: -webkit-right;
