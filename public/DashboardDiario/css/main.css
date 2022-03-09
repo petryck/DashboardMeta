@@ -112,6 +112,7 @@ body{
 .progress-bar{
     background-color: rgb(255,0,0) !important;
     border-radius: 10px !important;
+    font-weight: bold !important;
 }
 
 .progress{
@@ -123,5 +124,5 @@ body{
 }
 
 .graficos{
-    margin-bottom: 125px;
+    margin-bottom: 75px;
 }
