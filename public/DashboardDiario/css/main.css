@@ -12,6 +12,11 @@ body{
     margin: 0px !important;
     padding: 0 !important;
     overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.col-2{
+    zoom: 130%;
 }
 
 .DiasLateral{
@@ -122,8 +127,8 @@ body{
 .progress{
     position: relative;
     height: 2rem !important;
-    width: 300px !important;
-    right: -250px !important;
+    width: 351px !important;
+    right: -242px !important;
     border-radius: 10px !important;
 }
 
@@ -135,21 +140,24 @@ body{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 234px;
+    top: 240px;
+    left: 495px;
 }
 
 #MetaMensal2{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 527px;
+    top: 493px;
+    left: 495px;
 }
 
 #MetaMensal3{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 818px;
+    top: 746px;
+    left: 495px;
 }
 
 .iconsProcesso{
@@ -160,23 +168,65 @@ body{
     left: 302px;
 }
 
-.IconeModal{
+#IconeModal1{
     width: 55px;
     height: 55px;
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: -115px;
+    top: -92px;
+    left: 11px;
+}
+
+#IconeModal2{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -96px;
     left: 12px;
 }
 
-.ModalMeta{
+#IconeModal3{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -96px;
+    left: 12px;
+}
+
+#ModalMeta1{
     width: 24px;
     height:24px;
     position: absolute;
     font-weight: bold;
     /* font-size: 24px; */
-    top: -66px;
-    left: 23px;
-    color: #383839
+    top: -43px;
+    left: 24px;
+    color: #383839;
+}
+
+#ModalMeta2{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -46px;
+    left: 21px;
+    color: #383839;
+}
+
+#ModalMeta3{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -44px;
+    left: 24px;
+    color: #383839;
 }

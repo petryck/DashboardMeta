@@ -10,11 +10,11 @@
     box-shadow: 0 -3px 6px 2px rgba(0, 0, 0, 0.50);
     width: 200px;
     height: 100px;
-    Left: 176px;
+    Left: 130px;
     border-radius: 100px 100px 0 0!important;
     position: relative;
     overflow: hidden;
-    zoom: 140%
+    zoom: 175%
   }
   .gauge.min-scaled {
     transform: scale(0.5);
@@ -37,7 +37,7 @@
   
   .gauge-center .label, .gauge-center .number {display:block; width: 100%; text-align: center; border:0!important; color: #000 !important; font-weight: bold !important;}
   .gauge-center .label {font-size:0.75em; opacity:0.6; margin:1.1em 0 0.3em 0;}
-  .gauge-center .number {font-size:1.2em;}
+  .gauge-center .number {font-size:1.2em; top: 27px; position: absolute;}
   
   .needle {
     width: 80px;
