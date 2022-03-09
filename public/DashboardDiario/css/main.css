@@ -8,7 +8,7 @@ html{
 body{
     font-family: 'Montserrat';
     font-size: 14px;
-    background-color: #f9f9f9 !important;
+    background-color: #fff!important;
     margin: 0px !important;
     padding: 0 !important;
     overflow-x: hidden;
@@ -79,7 +79,7 @@ body{
 }
 
 .card{
-    background-color: #f9f9f9; !important;
+    background-color: #f9f9f9 !important;
     border: none !important;
 }
 
@@ -88,7 +88,7 @@ body{
     width: 60px;
     height: 60px;
     right: 10px;
-    top: 5px;
+    top: 15px;
     position: absolute;
     border-radius: 6px;
 }
@@ -98,7 +98,7 @@ body{
     width: 60px;
     height: 60px;
     right: 10px;
-    bottom: 5px;
+    bottom: 15px;
     position: absolute;
     border-radius: 6px;
 }
@@ -131,19 +131,48 @@ body{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 222px;
+    top: 234px;
 }
 
 #MetaMensal2{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 503px;
+    top: 527px;
 }
 
 #MetaMensal3{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
-    top: 787px;
+    top: 818px;
+}
+
+.iconsProcesso{
+    width: 53px;
+    height: 53px;
+    position: absolute;
+    top: 74px;
+    left: 302px;
+}
+
+.IconeModal{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -115px;
+    left: 12px;
+}
+
+.ModalMeta{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -66px;
+    left: 23px;
+    color: #383839
 }

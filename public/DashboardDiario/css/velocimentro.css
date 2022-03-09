@@ -2,7 +2,7 @@
     display: inline-block;
     width: auto;
     margin: 0 auto;
-    padding: 20px 15px 15px;
+    padding: 20px 15px 26px;
   }
   
   .gauge {
@@ -74,16 +74,16 @@
   
   
   .four .slice-colors .st.slice-item:nth-child(2) {
-    border-top: 50px #f1c40f solid;
-    border-right: 50px #f1c40f solid;
-    background-color:#1eaa59;
+    border-top: 50px #ffa33b solid;
+    border-right: 50px #ffa33b solid;
+    background-color:#e2574c;
   }
   
   .four .slice-colors .st.slice-item:nth-child(4) {
     left:50%;
-    border-bottom: 50px #E84C3D solid;
-    border-right: 50px #E84C3D solid;
-    background-color:#e67e22;
+    border-bottom: 50px #43c291 solid;
+    border-right: 50px #43c291 solid;
+    background-color:#ffde4a;
   }
   
   
