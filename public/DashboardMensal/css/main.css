@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Inter');
 
 html{
     margin: 0px !important;
@@ -13,6 +14,11 @@ body{
     padding: 0 !important;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+
+text{
+    position: absolute !important;
+    bottom: 10px !important;
 }
 
 .colunaIA{
@@ -38,3 +44,53 @@ body{
     border-radius: 6px;
     height: 100%;
 }
+
+.progress{
+    border-radius: 100%;
+}
+
+.radial-graph {
+    display: block;
+    margin: auto;
+    max-height: 500px;
+  }
+  
+  .radial-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 1.5;
+  }
+  
+  .radial {
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    animation: progress 3s cubic-bezier(0.83, 0, 0.17, 1) forwards;
+  }
+  
+  @keyframes progress {
+    0% {
+      stroke-dasharray: 0 100;
+      stroke: #FD453A;
+    }
+    30% {
+      stroke: #FD453A;
+    }
+    50% {
+      stroke: #FD9E3A;
+    }
+    80% {
+      stroke: #3A69FD;
+    }
+    100% {
+      stroke: #1AD852;
+    }
+  }
+  
+  .percent {
+    fill: #555;
+    font-size: .4rem;
+    font-family: Inter;
+    font-weight: bold;
+    text-anchor: middle;
+  }
