@@ -14,7 +14,8 @@
     border-radius: 100px 100px 0 0!important;
     position: relative;
     overflow: hidden;
-    zoom: 175%
+    zoom: 175%;
+    z-index: 1;
   }
   .gauge.min-scaled {
     transform: scale(0.5);
