@@ -44,5 +44,35 @@ $(document).on('click', '.NumeroDias', function(e){
 })
 
 
+function ProcessoNovo_mostrar(){
+  
+
+
+  $('.ProcessoNovo').css('top','0');
+  $('.rocket').css('top','20%');
+}
+
+function ProcessoNovo_esconder(){
+  
+
+  
+  $('.ProcessoNovo').css('top','100%');
+  $('.rocket').css('top','100%');
+}
+
+ProcessoNovo_mostrar()
+
+setTimeout(() => {
+  // ProcessoNovo_esconder()
+
+    $('.textoProcesso').css('transform','scale(5)');
+
+  
+  // $('.exhaust-fumes li').css('left','-22px');
+  // $('.exhaust-fumes li').css('width','1000px');
+  // $('.exhaust-fumes li').css('height','1000px');
+  
+  
+}, 5020);
 
 /*DASHBOARD MENSAL*/
