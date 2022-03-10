@@ -3,7 +3,7 @@
 
 html{
     margin: 0px !important;
-    padding: 0 !important; 
+    padding: 0px !important; 
 }
 
 body{
@@ -11,86 +11,116 @@ body{
     font-size: 14px;
     background-color: #fff!important;
     margin: 0px !important;
-    padding: 0 !important;
+    padding: 0px !important;
     overflow-x: hidden;
     overflow-y: hidden;
 }
 
-text{
-    position: absolute !important;
-    bottom: 10px !important;
+svg{
+  margin-bottom: 30px !important;
+  width: 250px !important;
+}
+
+.row{
+   margin-left: 150px !important;
+   margin-top: 50px !important;
+   margin-right: auto !important;
+   margin-left: 317px !important;
 }
 
 .colunaIA{
     background-color: #f8f6f6;
     border-radius: 6px;
+    width: 300px !important;
     height: 100%;
+    text-align: center !important;
+    margin-right: 40px;
 }
 
 .colunaIM{
     background-color: #fff;
     border-radius: 6px;
+    width: 300px !important;
     height: 100%;
+    text-align: center !important;
+    margin-right: 40px;
 }
 
 .colunaEA{
     background-color: #f8f6f6;
     border-radius: 6px;
+    width: 300px !important;
     height: 100%;
+    text-align: center !important;
+    margin-right: 40px;
 }
 
 .colunaEM{
     background-color: #fff;
     border-radius: 6px;
+    width: 300px !important;
     height: 100%;
+    text-align: center !important;
+    margin-right: 40px;
+}
+
+.h1Modal{
+  font-size: 26px;
+}
+
+.h1.porcentagem{
+  position: absolute !important;
+  left: 46% !important;
+  top: 40% !important;
+}
+
+.iconsProcesso{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  left: 47%;
+  top: 59%;
 }
 
 .progress{
-    border-radius: 100%;
+  margin-top: 3%;
+  margin-left: 0px !important;
+  height: 35px !important;
+  width: 180px;
+  border-radius: 12px !important;
 }
 
-.radial-graph {
-    display: block;
-    margin: auto;
-    max-height: 500px;
-  }
-  
-  .radial-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 1.5;
-  }
-  
-  .radial {
-    fill: none;
-    stroke-width: 1.5;
-    stroke-linecap: round;
-    animation: progress 3s cubic-bezier(0.83, 0, 0.17, 1) forwards;
-  }
-  
-  @keyframes progress {
-    0% {
-      stroke-dasharray: 0 100;
-      stroke: #FD453A;
-    }
-    30% {
-      stroke: #FD453A;
-    }
-    50% {
-      stroke: #FD9E3A;
-    }
-    80% {
-      stroke: #3A69FD;
-    }
-    100% {
-      stroke: #1AD852;
-    }
-  }
-  
-  .percent {
-    fill: #555;
-    font-size: .4rem;
-    font-family: Inter;
-    font-weight: bold;
-    text-anchor: middle;
-  }
+.progress-bar.esquerda{
+  border-radius: 12px !important;
+  background-color: #7e7e7e !important;
+}
+
+.progress-bar.direita{
+  border-radius: 12px !important;
+  background-color: #ff0000 !important;
+}
+
+.progress-bar{
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.col-4{
+  width: 50px !important;
+}
+
+.MetaEscrito{
+  margin-top: -34px;
+  position: absolute;
+  margin-left: 66px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.MesAno{
+  margin-top: 0px;
+  position: absolute;
+  margin-left: -216px;
+  font-size: 20px;
+  font-weight: bold;
+}
