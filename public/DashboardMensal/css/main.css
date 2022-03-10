@@ -29,7 +29,7 @@ svg{
 }
 
 .colunaIA{
-    background-color: #f8f6f6;
+    /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
     height: 100%;
@@ -38,7 +38,7 @@ svg{
 }
 
 .colunaIM{
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
     height: 100%;
@@ -47,7 +47,7 @@ svg{
 }
 
 .colunaEA{
-    background-color: #f8f6f6;
+    /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
     height: 100%;
@@ -56,7 +56,7 @@ svg{
 }
 
 .colunaEM{
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
     height: 100%;
@@ -88,16 +88,17 @@ svg{
   height: 35px !important;
   width: 180px;
   border-radius: 12px !important;
+  background-color: rgba(0, 0, 0, 0.123) !important;
 }
 
 .progress-bar.esquerda{
   border-radius: 12px !important;
-  background-color: #7e7e7e !important;
+  background-color: #ff0000 !important;
 }
 
 .progress-bar.direita{
   border-radius: 12px !important;
-  background-color: #ff0000 !important;
+  background-color: #36cd72 !important;
 }
 
 .progress-bar{
@@ -118,9 +119,21 @@ svg{
 }
 
 .MesAno{
-  margin-top: 0px;
+  margin-top: 5px;
   position: absolute;
-  margin-left: -216px;
+  margin-left: -198px;
   font-size: 20px;
   font-weight: bold;
+}
+
+.fundoCinza{
+  background-color: #8888881f;
+  margin: 0px;
+  border-radius: 6px;
+
+    width: 1383px;
+    left: 13%;
+    z-index: -1;
+    height: 38px;
+    position: absolute;
 }
