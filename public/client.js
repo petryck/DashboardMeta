@@ -45,34 +45,65 @@ $(document).on('click', '.NumeroDias', function(e){
 
 
 function ProcessoNovo_mostrar(){
-  
 
-
+  $('.ProcessoNovo').css('opacity','1');
+  $('.rocket').css('opacity','1');
   $('.ProcessoNovo').css('top','0');
   $('.rocket').css('top','20%');
 }
 
 function ProcessoNovo_esconder(){
-  
-
-  
   $('.ProcessoNovo').css('top','100%');
   $('.rocket').css('top','100%');
 }
 
-ProcessoNovo_mostrar()
+function ProcessoNovo(){
 
 setTimeout(() => {
   // ProcessoNovo_esconder()
+    ProcessoNovo_mostrar()
 
-    $('.textoProcesso').css('transform','scale(5)');
-
-  
-  // $('.exhaust-fumes li').css('left','-22px');
-  // $('.exhaust-fumes li').css('width','1000px');
-  // $('.exhaust-fumes li').css('height','1000px');
-  
-  
+    $('.textoProcesso').css('opacity','1');
+    $('#canvas').css('opacity','0.7');
+    $('.Transparente').css('filter','blur(8px)');
 }, 5020);
+
+setTimeout(() => {
+  $('.textoProcesso').css('transform','scale(5)');
+  $('#canvas').css('opacity','0.7');
+  $('.Transparente').css('filter','blur(8px)');
+}, 6020);
+
+
+setTimeout(() => {
+   $('.textoProcesso').css('opacity','0');
+    $('#canvas').css('opacity','0');
+    $('.Transparente').css('filter','blur(0px)');
+
+}, 12020);
+
+setTimeout(() => {
+  $('.textoProcesso').css('transform','scale(0)');
+}, 14020);
+
+setTimeout(() => {
+  $('.rocket').css('top','-100%');
+}, 14020);
+
+setTimeout(() => {
+
+  $('.ProcessoNovo').css('opacity','0');
+  $('.rocket').css('opacity','0');
+
+  $('.ProcessoNovo').css('top','100%');
+  $('.rocket').css('top','100%');
+}, 17020);
+}
+
+
+ProcessoNovo()
+setInterval(() => {
+  ProcessoNovo()
+}, 16020);
 
 /*DASHBOARD MENSAL*/
