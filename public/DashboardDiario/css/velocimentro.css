@@ -57,11 +57,16 @@
     display:none;
     z-index:9;
   }
-  
+/*   
   .four.rischio1 .needle {animation: fourspeed1 2s 1 both; animation-delay: 1s; display:block;}
   .four.rischio2 .needle {animation: fourspeed2 2s 1 both; animation-delay: 1s; display:block;}
   .four.rischio3 .needle {animation: fourspeed3 2s 1 both; animation-delay: 1s; display:block;}
-  .four.rischio4 .needle {animation: fourspeed4 2s 1 both; animation-delay: 1s; display:block;}
+  .four.rischio4 .needle {animation: fourspeed4 2s 1 both; animation-delay: 1s; display:block;} */
+  .needle{
+    display:block;
+transition: transform 2s;
+  }
+
   
   .slice-colors {height:100%;}
   
