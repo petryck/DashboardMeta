@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="module" src="../bundle.js"></script>
+    <link href="../DashboardMensal/css/main.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
     <link href="css/velocimentro.css" rel="stylesheet">
     <link href="css/processoNovo.css" rel="stylesheet">
+    <link href="css/velocimentro.css" rel="stylesheet">
     <link href="../css/fogos.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>DashBoard</title>
   </head>
   <body>
-    <div class="row" style="margin-top: 100px;">
+
+ <div class="dashboard_diario" style="display: none;">
+
+   <div class="row" style="margin-top: 100px;">
       <div class="col-5" style="width: 578px;">
         <div class="graficos">
           <div class="gauge-wrapper">
@@ -77,176 +82,132 @@
         </div>
       </div>
       <div class="col-2">
-        <div id="MetaMensal1"> <span id="MetaMensal1_numero" >0/0</span> <img id="IconeModal1" src="icons/shipIcon.svg">
+        <div id="MetaMensal1"> <span id="MetaMensal1_numero" >0/0</span> <img id="IconeModal1" src="../DashboardMensal/icons/shipIcon.svg">
           <span id="ModalMeta1">IM</span>
         </div>
-        <div id="MetaMensal2"> <span id="MetaMensal2_numero" >0/0</span> <img id="IconeModal2" src="icons/airPlaneIcon.svg">
+        <div id="MetaMensal2"> <span id="MetaMensal2_numero" >0/0</span> <img id="IconeModal2" src="../DashboardMensal/icons/airPlaneIcon.svg">
           <span id="ModalMeta2">IA</span>
         </div>
-        <div id="MetaMensal3"> <span id="MetaMensal3_numero" >0/0</span> <img id="IconeModal3" src="icons/shipIcon.svg">
+        <div id="MetaMensal3"> <span id="MetaMensal3_numero" >0/0</span> <img id="IconeModal3" src="../DashboardMensal/icons/shipIcon.svg">
           <span id="ModalMeta3">EM</span>
         </div>
       </div>
       <div class="col-md-3 col-sm-2 TopProcesso">
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="card-body text-dark">
-            <div id="cardFotoSales">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-            </div>
-            <div id="cardFotoInside">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-            </div>
-            <h5 class="card-title">Nº <span class="TituloProcesso">IM1008-22 </span>
-              <span class="DataProcesso"> 09.03.22 - 22:44H</span>
-            </h5>
-            <p class="card-text">Sales - MATEUS RIBEIRO</p>
-            <p class="card-text">Inside sales - PETRYCK WILLIAN</p>
-            <img class="iconsProcesso" src="icons/shipIcon.svg">
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="card-body text-dark">
-            <div id="cardFotoSales">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-            </div>
-            <div id="cardFotoInside">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-            </div>
-            <h5 class="card-title">Nº <span class="TituloProcesso">IM1008-22 </span>
-              <span class="DataProcesso"> 09.03.22 - 22:44H</span>
-            </h5>
-            <p class="card-text">Sales - MATEUS RIBEIRO</p>
-            <p class="card-text">Inside sales - PETRYCK WILLIAN</p>
-            <img class="iconsProcesso" src="icons/airPlaneIcon.svg">
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="card-body text-dark">
-            <div id="cardFotoSales">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-            </div>
-            <div id="cardFotoInside">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-            </div>
-            <h5 class="card-title">Nº <span class="TituloProcesso">IM1008-22 </span>
-              <span class="DataProcesso"> 09.03.22 - 22:44H</span>
-            </h5>
-            <p class="card-text">Sales - MATEUS RIBEIRO
-            <p class="card-text">Inside sales - PETRYCK WILLIAN</p>
-            <img class="iconsProcesso" src="icons/shipIcon.svg">
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="card-body text-dark">
-            <div id="cardFotoSales">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-            </div>
-            <div id="cardFotoInside">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-            </div>
-            <h5 class="card-title">Nº <span class="TituloProcesso">IM1008-22 </span>
-              <span class="DataProcesso"> 09.03.22 - 22:44H</span>
-            </h5>
-            <p class="card-text">Sales - MATEUS RIBEIRO</p>
-            <p class="card-text">Inside sales - PETRYCK WILLIAN</p>
-            <img class="iconsProcesso" src="icons/airPlaneIcon.svg">
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 700px;">
-          <div class="card-body text-dark">
-            <div id="cardFotoSales">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-            </div>
-            <div id="cardFotoInside">
-              <img class="FotoSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-            </div>
-            <h5 class="card-title">Nº <span class="TituloProcesso">IM1008-22 </span>
-              <span class="DataProcesso"> 09.03.22 - 22:44H</span>
-            </h5>
-            <p class="card-text">Sales - MATEUS RIBEIRO</p>
-            <p class="card-text">Inside sales - PETRYCK WILLIAN</p>
-            <img class="iconsProcesso" src="icons/shipIcon.svg">
-          </div>
-        </div>
+       
       </div>
       <div class="col-1 topfotos" style="width: 375px;">
         <div class="DiasLateral">
-          <div class="NumeroDias">01 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">02 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">03 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">04 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">05 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">06 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">07 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">08 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">09 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
-          <div class="NumeroDias">10 <span class="NomeMes ">FEV</span>
-            <span class="NomeDia ">Quarta-Feira</span>
-          </div>
+        
         </div>
       </div>
 </div>
-      <!-- PROCESSO NOVO -->
-      <div class="ProcessoNovo">
-        <div class="rocket">
-        <div class="rocket-body">
-          <div class="body"></div>
-          <div class="fin fin-left"></div>
-          <div class="fin fin-right"></div>
-          <div class="window"></div>
-        </div>
-        <div class="exhaust-flame"></div>
-        <ul class="exhaust-fumes">
-         
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          
-        </ul>
-        <div class="textoProcesso">
-          <img class="FotoFoguete Sales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/116.jpeg">
-          <span class="NomeResponsaveis Vendedor">Mateus Ribeiro</span>
-          <span class="NomeCargo Vendedor">Vendedor</span>
-          <img class="FotoFoguete InsideSales" src="http://chronus-dc.ddns.net:8070/chronus/assets/img/colaboradores/39.jpeg">
-          <span class="NomeResponsaveis InsideSales">Petryck Willian</span>
-          <span class="NomeCargo InsideSales">Inside Sales</span>
-          <span class="NumeroProcesso Normal">Nº</span><span class="NumeroProcesso Bold">IM1007-22</span>
-          <span class="NumeroProcesso Data">11.03.22 - 09:30</span>
-        </div>
-      </div>
+    
+
+   
+
+ </div>
+
+
+ <div class="dashboard_mensal" style="display: block;">
+<div class="row">
+  <div class="col-3 colunaIA">
+    <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;">
+      <svg viewBox="0 0 100 100" style="display: block;">
+        <path  d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+        <path id="grafico_ia" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#ff0300" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 300;"></path>
+      </svg>
+      <div class="h1 porcentagem" style="position: absolute; left: 50%; top: 40%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_anual_ia"></span>%</div>
+      <div class="h1Modal" style="position: absolute; left: 35%; top: 65%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;">IA</div>
+      <div class="h1Icons"><img class="iconsProcesso" src="../DashboardMensal/icons/airPlaneIcon.svg"></div>
+    </div>
+  </div>
+
+  <div class="col-3 colunaIM">
+    <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;">
+      <svg viewBox="0 0 100 100" style="display: block;">
+        <path  d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+        <path id="grafico_im" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#ff0300" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 300;"></path>
+      </svg>
+      <div class="h1 porcentagem" style="position: absolute; left: 50%; top: 40%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_anual_im"></span>%</div>
+      <div class="h1Modal" style="position: absolute; left: 35%; top: 65%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;">IM</div>
+      <div class="h1Icons"><img class="iconsProcesso" src="icons/shipIcon.svg"></div>
+    </div>
+  </div>
+
+  <div class="col-3 colunaEA">
+    <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;">
+      <svg viewBox="0 0 100 100" style="display: block;">
+        <path  d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+        <path id="grafico_ea" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#36cd72" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 300;"></path>
+      </svg>
+      <div class="h1 porcentagem" style="position: absolute; left: 50%; top: 40%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_anual_ea"></span>%</div>
+      <div class="h1Modal" style="position: absolute; left: 35%; top: 65%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;">EA</div>
+      <div class="h1Icons"><img class="iconsProcesso" src="icons/airPlaneIcon.svg"></div>
+    </div>
+  </div>
+  <div class="col-3 colunaEM">
+    <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;">
+      <svg viewBox="0 0 100 100" style="display: block;">
+        <path  d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+        <path id="grafico_em" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#36cd72" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 300;"></path>
+      </svg>
+      <div class="h1 porcentagem" style="position: absolute; left: 50%; top: 40%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_anual_em"></span>%</div>
+      <div class="h1Modal" style="position: absolute; left: 35%; top: 65%; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;">EM</div>
+      <div class="h1Icons"><img class="iconsProcesso" src="icons/shipIcon.svg"></div>
+    </div>
+  </div>
+
+</div>
+<div class="corpo_graficos">
+
+</div>
+
+  
+
+
+</div>
+
+  <!-- PROCESSO NOVO -->
+  <div class="ProcessoNovo">
+    <div class="rocket">
+    <div class="rocket-body">
+      <div class="body"></div>
+      <div class="fin fin-left"></div>
+      <div class="fin fin-right"></div>
+      <div class="window"></div>
+    </div>
+    <div class="exhaust-flame"></div>
+    <ul class="exhaust-fumes">
+     
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      
+    </ul>
+    <div class="textoProcesso">
+      <img class="FotoFoguete Sales" id="img_vendedor_foguete" src="">
+      <span class="NomeResponsaveis Vendedor" id="nome_vendedor_foguete"></span>
+      <span class="NomeCargo Vendedor">Vendedor</span>
+      <img class="FotoFoguete InsideSales" id="img_inside_foguete" src="">
+      <span class="NomeResponsaveis InsideSales" id="nome_inside_foguete"></span>
+      <span class="NomeCargo InsideSales">Inside Sales</span>
+      <span class="NumeroProcesso Normal">Nº</span><span class="NumeroProcesso Bold" id="numero_processo_foguete"></span>
+      <span class="NumeroProcesso Data" id="data_processo_foguete"></span>
+    </div>
+  </div>
+</div>
+<div class="Transparente"></div>
+<div>
+  <canvas id="canvas"></canvas>
     </div>
 
-    <div class="Transparente"></div>
-    <div>
-      <canvas id="canvas"></canvas>
-        </div>
-
-
-
+<input type="text" value="1" id="status_new_pross" style="display: none;">
       <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
       <script src="../js/fogos.js"></script>

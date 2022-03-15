@@ -5,6 +5,16 @@ html{
     padding: 0 !important; 
 }
 
+
+.dashboard_mensal{
+    display: none;
+    transform: opacity 2s !important;;
+}
+.dashboard_diario{
+    display: block;
+    transform: opacity 2s !important;;
+}
+
 body{
     font-family: 'Montserrat' !important;
     font-size: 14px;
@@ -15,11 +25,11 @@ body{
     overflow-y: hidden;
 }
 
-.col-2{
+.dashboard_diario .col-2{
     zoom: 130%;
 }
 
-.DiasLateral{
+.dashboard_diario .DiasLateral{
     width: 78px;
     height: auto;
     right: 0px;
@@ -27,7 +37,7 @@ body{
     position: absolute;
 }
 
-.Transparente{
+.dashboard_diario .Transparente{
     position: absolute;
     width: 100%;
     height: 100%;
@@ -35,7 +45,7 @@ body{
     transition: filter 0.6s;
 }
 
-.NumeroDias{
+.dashboard_diario .NumeroDias{
     width: 100%;
     height: 81px;
     margin-bottom: 5px;
@@ -50,20 +60,20 @@ body{
     z-index: 10;
 }
 
-.NomeMes{
+.dashboard_diario .NomeMes{
     z-index: 1;
     opacity: 0;
     font-size: 24px;
     font-weight: bold;
 }
 
-.NumeroDias > .active{
+.dashboard_diario .NumeroDias > .active{
     transition: width 0.6s, opacity 2s;
     opacity: 1;
     color: rgb(249,249,249);
 }
 
-.NomeDia{
+.dashboard_diario .NomeDia{
     z-index: 1;
     pointer-events: none;
     opacity: 0;
@@ -73,31 +83,31 @@ body{
     margin-left: -80px;
 }
 
-.DiasLateral > .active{
+.dashboard_diario .DiasLateral > .active{
     width: 130px;
     background-color: #ff0000;
     color: rgb(249,249,249);
     transition: width 0.6s, opacity 2s;
 }
 
-.TopProcesso{
+.dashboard_diario .TopProcesso{
     background-color: transparent;
     border-radius: 6px;
     max-height: 700px;
     margin-bottom: 6px;
 }
 
-.TituloProcesso{
+.dashboard_diario .TituloProcesso{
     font-size: 32px;
 }
 
-.card{
+.dashboard_diario .card{
     width: 530px;
     background-color: #f9f9f9 !important;
     border: none !important;
 }
 
-#cardFotoSales{
+.dashboard_diario #cardFotoSales{
     background-color: transparent;
     width: 75px;
     height: 75px;
@@ -107,7 +117,7 @@ body{
     border-radius: 0.25rem;
 }
 
-#cardFotoInside{
+.dashboard_diario #cardFotoInside{
     background-color: transparent;
     width: 75px;
     height: 75px;
@@ -117,7 +127,7 @@ body{
     border-radius: 0.25rem;
 }
 
-.FotoSales{
+.dashboard_diario .FotoSales{
     width: 75px;
     height: 75px;
     border-radius: 0.25rem;
@@ -125,21 +135,21 @@ body{
     left: 90px;
 }
 
-.progress-bar.importacao{
+.dashboard_diario .progress-bar.importacao{
     background-color: #ff0000 !important;
     border-radius: 10px !important;
     font-weight: bold !important;
     font-size: 16px;
 }
 
-.progress-bar.exportacao{
+.dashboard_diario .progress-bar.exportacao{
     background-color: #36cd72;
     border-radius: 10px !important;
     font-weight: bold !important;
     font-size: 16px;
 }
 
-.progress{
+.dashboard_diario .progress{
     position: relative;
     height: 2rem !important;
     width: 351px !important;
@@ -147,11 +157,11 @@ body{
     border-radius: 10px !important;
 }
 
-.graficos{
+.dashboard_diario .graficos{
     margin-bottom: 75px;
 }
 
-#MetaMensal1{
+.dashboard_diario #MetaMensal1{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
@@ -159,7 +169,7 @@ body{
     left: 495px !important;
 }
 
-#MetaMensal2{
+.dashboard_diario #MetaMensal2{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
@@ -167,7 +177,7 @@ body{
     left: 495px !important;
 }
 
-#MetaMensal3{
+.dashboard_diario #MetaMensal3{
     position: absolute;
     font-weight: bold;
     font-size: 24px;
@@ -175,7 +185,7 @@ body{
     left: 495px !important;
 }
 
-.iconsProcesso{
+.dashboard_diario .iconsProcesso{
     width: 53px;
     height: 53px;
     position: absolute;
@@ -183,7 +193,7 @@ body{
     left: 302px !important;
 }
 
-#IconeModal1{
+.dashboard_diario #IconeModal1{
     width: 55px;
     height: 55px;
     position: absolute;
@@ -193,7 +203,7 @@ body{
     left: 11px !important;
 }
 
-#IconeModal2{
+.dashboard_diario #IconeModal2{
     width: 55px;
     height: 55px;
     position: absolute;
@@ -203,7 +213,7 @@ body{
     left: 12px !important;
 }
 
-#IconeModal3{
+.dashboard_diario #IconeModal3{
     width: 55px;
     height: 55px;
     position: absolute;
@@ -213,7 +223,7 @@ body{
     left: 12px !important;
 }
 
-#ModalMeta1{
+.dashboard_diario #ModalMeta1{
     width: 24px;
     height:24px;
     position: absolute;
@@ -224,7 +234,7 @@ body{
     color: #383839;
 }
 
-#ModalMeta2{
+.dashboard_diario #ModalMeta2{
     width: 24px;
     height:24px;
     position: absolute;
@@ -235,7 +245,7 @@ body{
     color: #383839;
 }
 
-#ModalMeta3{
+.dashboard_diario #ModalMeta3{
     width: 24px;
     height:24px;
     position: absolute;

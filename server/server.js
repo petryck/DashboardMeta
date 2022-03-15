@@ -50,7 +50,10 @@ const connStr = {
 
 //fazendo a conexão global
 sql.connect(connStr)
-   .then(conn => global.conn = conn)
+   .then(conn => {
+    global.conn = conn
+    novoProcesso()
+   })
    .catch(err => console.log(err));
 
 
@@ -91,6 +94,7 @@ connection.connect(function(err) {
 
 server.lastPlayderID = 0;
 var players = [];
+var ultimoid_processo = 0;
 
 io.addServer(server)
 
@@ -145,6 +149,56 @@ io.onConnection(channel => {
 })
 
 
+  
+
+
+function novoProcesso(){
+
+  global.conn.request()
+  .query(`SELECT TOP 1
+  FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
+  Lhs.Numero_Processo,
+  Lhs.Data_Abertura_Processo,
+  Lhs.IdLogistica_House as IdProcesso,
+  Vnd.Nome as Vendedor,
+  Vnd.Foto as Foto_Vendedor,
+  Ins.Nome as InsideSales,
+  Ins.Foto as Foto_InsideSales,
+  Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+From
+  mov_Logistica_House Lhs
+JOIN
+  mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
+Left Outer JOIN
+  vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
+Left Outer JOIN
+  mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
+Left Outer JOIN
+  vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel ORDER BY Lhs.Data_Abertura_Processo DESC`)
+  .then(result => {
+
+    if(ultimoid_processo == result.recordset[0].IdProcesso){
+      // io.emit('novoProcesso',result.recordset[0]);
+    }else{
+      ultimoid_processo = result.recordset[0].IdProcesso
+      io.emit('novoProcesso',result.recordset[0]);
+    }
+  
+  
+    // console.log(result.recordset[0])
+  })
+  .catch(err => {
+    console.log(err)
+    return err;
+  });
+}
+
+setInterval(() => {
+  novoProcesso()
+}, 20000);
+
+
+
 
   app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
@@ -153,6 +207,9 @@ io.onConnection(channel => {
   app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/login.html'))
   })
+
+
+
 
 
   app.get('/diario', (req, res) => {
@@ -247,15 +304,38 @@ io.onConnection(channel => {
 
   })
 
+  app.get('/anual', (req, res) => {
+
+    global.conn.request()
+    .query(`SELECT * FROM vis_Metas_Anual`)
+    .then(result => {
+     
+      res.json(result.recordset)
+    })
+    .catch(err => {
+      console.log(err)
+      return err;
+    });
+
+  
+
+  })
+
+
+
+  
+
   app.get('/ultimos', (req, res) => {
 
     global.conn.request()
     .query(`SELECT TOP 5
-    Cast(Lhs.Data_Abertura_Processo as Datetime) as data_Abertura_Convertido,
+    FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
     Lhs.Numero_Processo,
     Lhs.Data_Abertura_Processo,
     Vnd.Nome as Vendedor,
+    Vnd.Foto as Foto_Vendedor,
     Ins.Nome as InsideSales,
+    Ins.Foto as Foto_InsideSales,
     Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
   From
     mov_Logistica_House Lhs

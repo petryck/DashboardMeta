@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat');
 @import url('https://fonts.googleapis.com/css?family=Inter');
 
 html{
     margin: 0px !important;
     padding: 0px !important; 
-}
+} */
 
 body{
     font-family: 'Montserrat' !important;
@@ -15,20 +15,22 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
-svg{
+.dashboard_mensal{
+  margin-top: 99px;
+}
+.dashboard_mensal svg{
   margin-bottom: 30px !important;
   width: 250px !important;
 }
 
-.row{
+.dashboard_mensal  .row{
    margin-left: 150px !important;
-   margin-top: 50px !important;
+   margin-top: 8px !important;
    margin-right: auto !important;
-   margin-left: 317px !important;
+   margin-left: 337px !important;
 }
 
-.colunaIA{
+.dashboard_mensal  .colunaIA{
     /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
@@ -37,7 +39,7 @@ svg{
     margin-right: 40px;
 }
 
-.colunaIM{
+.dashboard_mensal  .colunaIM{
     /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
@@ -46,7 +48,7 @@ svg{
     margin-right: 40px;
 }
 
-.colunaEA{
+.dashboard_mensal .colunaEA{
     /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
@@ -55,7 +57,7 @@ svg{
     margin-right: 40px;
 }
 
-.colunaEM{
+.dashboard_mensal  .colunaEM{
     /* background-color: #fff; */
     border-radius: 6px;
     width: 300px !important;
@@ -64,17 +66,17 @@ svg{
     margin-right: 40px;
 }
 
-.h1Modal{
+.dashboard_mensal .h1Modal{
   font-size: 26px;
 }
 
-.h1.porcentagem{
+.dashboard_mensal  .h1.porcentagem{
   position: absolute !important;
   left: 46% !important;
   top: 40% !important;
 }
 
-.iconsProcesso{
+.dashboard_mensal  .iconsProcesso{
   width: 30px;
   height: 30px;
   position: absolute;
@@ -82,7 +84,7 @@ svg{
   top: 59%;
 }
 
-.progress{
+.dashboard_mensal .progress{
   margin-top: 3%;
   margin-left: 0px !important;
   height: 35px !important;
@@ -91,26 +93,26 @@ svg{
   background-color: rgba(0, 0, 0, 0.123) !important;
 }
 
-.progress-bar.esquerda{
+.dashboard_mensal  .progress-bar.esquerda{
   border-radius: 12px !important;
   background-color: #ff0000 !important;
 }
 
-.progress-bar.direita{
+.dashboard_mensal  .progress-bar.direita{
   border-radius: 12px !important;
   background-color: #36cd72 !important;
 }
 
-.progress-bar{
+.dashboard_mensal  .progress-bar{
   font-size: 22px;
   font-weight: bold;
 }
 
-.col-4{
+.dashboard_mensal .col-4{
   width: 50px !important;
 }
 
-.MetaEscrito{
+.dashboard_mensal  .MetaEscrito{
   margin-top: -34px;
   position: absolute;
   margin-left: 66px;
@@ -118,7 +120,7 @@ svg{
   font-weight: bold;
 }
 
-.MesAno{
+.dashboard_mensal  .MesAno{
   margin-top: 5px;
   position: absolute;
   margin-left: -198px;
@@ -126,7 +128,7 @@ svg{
   font-weight: bold;
 }
 
-.fundoCinza{
+.dashboard_mensal  .fundoCinza{
   background-color: #8888881f;
   margin: 0px;
   border-radius: 6px;
