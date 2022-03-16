@@ -1,17 +1,21 @@
-import geckos from '@geckos.io/server'
+// import geckos from '@geckos.io/server'
+import { Server } from "socket.io";
 import mysql from 'mysql'
 import express from 'express'
 const app = express()
 import path from 'path'
 import cors from 'cors'
 import http from 'http'
-const server = http.Server(app);
+const server_http = http.Server(app);
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
 import { Console } from 'console'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 const port = 3560
+const io = new Server(server_http);
+// const io = new Server(server)
+// var io = require('socket.io')(http);
 
 
 
@@ -63,7 +67,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-const io = geckos()
+
 app.use(cors())
 
 app.use('/', express.static(path.join(__dirname, '../public')))
@@ -92,64 +96,70 @@ connection.connect(function(err) {
 // connection.incia_conexao();
 
 
-server.lastPlayderID = 0;
+server_http.lastPlayderID = 0;
 var players = [];
 var ultimoid_processo = 0;
 
-io.addServer(server)
+// io.addServer(server)
 
-io.onConnection(channel => {
+// io.onConnection(channel => {
+//   server.on("connection", (channel) => {
 
-  console.log('conectou geral')
+//   console.log('conectou geral')
     
-  channel.on('ready', data => {
-    console.log('conectou')
+//   channel.on('ready', data => {
+//     console.log('conectou')
 
-    channel.player = {
-      id: data.id,
-      nome: data.nome,
-      token:data.token
-  }; 
+//     channel.player = {
+//       id: data.id,
+//       nome: data.nome,
+//       token:data.token
+//   }; 
 
 
-  channel.broadcast.emit('novoProcesso','dsadsa');
+//   channel.broadcast.emit('novoProcesso','dsadsa');
   
-  })
+//   })
 
     
 
-    channel.on('SendMessege', data => {
+//     channel.on('SendMessege', data => {
 
-      var saida_player = {
-        id: channel.player.id,
-        msg: data,
-        name: channel.player.name
-    };
-    console.log(saida_player)
+//       var saida_player = {
+//         id: channel.player.id,
+//         msg: data,
+//         name: channel.player.name
+//     };
+//     console.log(saida_player)
 
-    channel.broadcast.emit('SendMessege',saida_player);
-    })
+//     channel.broadcast.emit('SendMessege',saida_player);
+//     })
 
     
     
 
-    channel.onDisconnect(() => {
-      // console.log(channel)
+//     channel.onDisconnect(() => {
+//       // console.log(channel)
    
-      console.log(channel.player.id+' removido')
+//       console.log(channel.player.id+' removido')
 
    
-      io.emit('remove',channel.player.id);
+//       io.emit('remove',channel.player.id);
     
 
-     players = players.filter((item) => item.id !== channel.player.id);
+//      players = players.filter((item) => item.id !== channel.player.id);
   
       
-    })
+//     })
 
-      channel.emit('ready') 
+//       channel.emit('ready') 
 
-})
+// })
+
+
+io.on("connection", (socket) => {
+// console.log(socket)
+});
 
 
   
@@ -365,6 +375,7 @@ setInterval(() => {
   })
 
 
-server.listen(port, function () {
-    console.log(`Servidor Carregado http://localhost:${server.address().port}`);
+
+  server_http.listen(port, function () {
+    console.log(`Servidor Carregado http://localhost:${server_http.address().port}`);
 });

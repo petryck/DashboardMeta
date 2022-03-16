@@ -1,5 +1,7 @@
 // <reference path="../phaser.d.ts" />
-import geckos from '@geckos.io/client'
+// import geckos from '@geckos.io/client'
+import { io } from "socket.io-client";
+// import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
 console.log('iniciados')
 
 var channel;
@@ -37,12 +39,12 @@ setInterval(() => {
 }, 30000);
 
 
-
+channel = io();
 // channel = geckos({ port: 3560 })
-channel = geckos({
-  url: `${location.protocol}//${location.hostname}`,
-  port: 3560 // not required, since 9208 is the default
-})
+// channel = geckos({
+//   url: `${location.protocol}//${location.hostname}`,
+//   port: 3560 // not required, since 9208 is the default
+// })
 
 console.log(`${location.protocol}//${location.hostname}`)
 
@@ -60,27 +62,41 @@ localStorage.setItem( 'info_usuario', JSON.stringify(infos) );
 
 user_info = JSON.parse(localStorage.getItem("info_usuario"));
 
+// channel.on("connect", (channel) => {
+     
+// })
 
-
-        channel.onConnect(error => {
-          if (error) console.error(error.message)
-    
-          
-          channel.emit('ready',user_info);
-
-    channel.on('ready', () => {
-
-    })
+// channel.on("connect", () => {
+//   console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+// });
 
     channel.on('novoProcesso', (e) => {
       console.log('novo processo')
 
       lista_espera_processos.push(e);
 
-      
 
     })
-})
+
+//         channel.onConnect(error => {
+//           if (error) console.error(error.message)
+    
+          
+//           channel.emit('ready',user_info);
+
+//     channel.on('ready', () => {
+
+//     })
+
+//     channel.on('novoProcesso', (e) => {
+//       console.log('novo processo')
+
+//       lista_espera_processos.push(e);
+
+      
+
+//     })
+// })
 
 
 
