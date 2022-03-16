@@ -179,6 +179,7 @@ Left Outer JOIN
 
     if(ultimoid_processo == result.recordset[0].IdProcesso){
       io.emit('novoProcesso',result.recordset[0]);
+      console.log('executando novo processo')
     }else{
       ultimoid_processo = result.recordset[0].IdProcesso
       io.emit('novoProcesso',result.recordset[0]);
