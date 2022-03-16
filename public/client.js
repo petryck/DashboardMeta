@@ -426,9 +426,9 @@ function lista_novos_processos(){
   if(element.Modalidade_Processo == 1){
     img_modal = 'airPlaneIcon';
   }else if(element.Modalidade_Processo == 2){
-    img_modal = 'shipicon';
+    img_modal = 'shipIcon';
   }else if(element.Modalidade_Processo == 3){
-    img_modal = 'shipicon';
+    img_modal = 'shipIcon';
   }
   
         var corpo = '<div class="card mb-3" style="max-width: 700px;">'
