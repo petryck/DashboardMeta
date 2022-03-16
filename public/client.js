@@ -38,7 +38,14 @@ setInterval(() => {
 
 
 
-channel = geckos({ port: 3560 })
+// channel = geckos({ port: 3560 })
+const channel = geckos({
+  url: 'https://dashboard-metas.conlinebr.com.br',
+  port: 3560 // not required, since 9208 is the default
+})
+
+
+// http://dashboard-metas.conlinebr.com.br/
 
 var infos = {
   id:1,
