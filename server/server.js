@@ -127,7 +127,7 @@ io.onConnection(channel => {
     channel.broadcast.emit('SendMessege',saida_player);
     })
 
-
+    channel.broadcast.emit('novoProcesso','dsadsa');
     
 
     channel.onDisconnect(() => {
