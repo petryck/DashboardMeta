@@ -1,5 +1,6 @@
 // <reference path="../phaser.d.ts" />
 import geckos from '@geckos.io/client'
+console.log('iniciado')
 
 var channel;
 var user_info;
