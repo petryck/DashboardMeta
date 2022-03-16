@@ -39,7 +39,7 @@ setInterval(() => {
 
 
 // channel = geckos({ port: 3560 })
-const channel = geckos({
+channel = geckos({
   url: `${location.protocol}//${location.hostname}`,
   port: 3560 // not required, since 9208 is the default
 })
