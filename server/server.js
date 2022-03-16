@@ -178,7 +178,7 @@ Left Outer JOIN
   .then(result => {
 
     if(ultimoid_processo == result.recordset[0].IdProcesso){
-      // io.emit('novoProcesso',result.recordset[0]);
+      io.emit('novoProcesso',result.recordset[0]);
     }else{
       ultimoid_processo = result.recordset[0].IdProcesso
       io.emit('novoProcesso',result.recordset[0]);

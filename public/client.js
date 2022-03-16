@@ -63,6 +63,7 @@ user_info = JSON.parse(localStorage.getItem("info_usuario"));
     })
 
     channel.on('novoProcesso', (e) => {
+      console.log('novo processo')
 
       lista_espera_processos.push(e);
 
