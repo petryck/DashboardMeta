@@ -99,8 +99,11 @@ var ultimoid_processo = 0;
 io.addServer(server)
 
 io.onConnection(channel => {
+
+  console.log('conectou geral')
     
   channel.on('ready', data => {
+    console.log('conectou')
 
     channel.player = {
       id: data.id,
