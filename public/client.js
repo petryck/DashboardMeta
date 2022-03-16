@@ -444,7 +444,7 @@ function lista_novos_processos(){
         corpo +='</h5>'
         corpo +='<p class="card-text">Sales - '+element.Vendedor+'</p>'
         corpo +='<p class="card-text">Inside sales - '+element.InsideSales+'</p>'
-        corpo +='<img class="iconsProcesso" src=""../DashboardMensal/icons/'+img_modal+'.svg">'
+        corpo +='<img class="iconsProcesso" src="../DashboardMensal/icons/'+img_modal+'.svg">'
         corpo +='</div>'
         corpo +='</div>'
   
