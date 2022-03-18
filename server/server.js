@@ -6,6 +6,9 @@ const app = express()
 import path from 'path'
 import cors from 'cors'
 import http from 'http'
+
+
+
 const server_http = http.Server(app);
 import { dirname } from 'path'
 import { fileURLToPath } from 'url'
@@ -263,7 +266,9 @@ setInterval(() => {
     let firstDayYear = new Date(+splitedDate[0],0,1,0,0,0,0 )
     let yearDay = ((dateObj - firstDayYear) / 86400000)+1
     let weekInYear = +(String((yearDay + firstDayYear.getDay()+1) / 7).split(".")[0])
+    console.log(date, yearDay, weekInYear)
     return { date, yearDay, weekInYear }
+    
    }
 
   app.get('/semanal', (req, res) => {
@@ -277,7 +282,9 @@ setInterval(() => {
     day = '' + d.getDate(),
     year = d.getFullYear();
 
-    var semana = getYearlyWeekNumber(year+'-'+month+'-'+day).weekInYear+1
+    var semana = getYearlyWeekNumber(year+'-'+month+'-'+day).weekInYear+0
+
+    console.log(semana)
 
 
     if (month.length < 2) 
@@ -288,6 +295,8 @@ setInterval(() => {
     global.conn.request()
     .query(`SELECT * FROM vis_Metas_Semanal WHERE Semana_Abertura = ${semana} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`)
     .then(result => {
+
+      console.log(result.recordset[0])
     
       res.json(result.recordset[0])
     })
