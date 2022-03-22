@@ -325,13 +325,13 @@ function lista_semanal(){
   
   
   
-  $('.porcentagem_IM').css('width', data.Porcentagem_EM+'%')
+  $('.porcentagem_IM').css('width', data.Porcentagem_IM+'%')
   $('.porcentagem_IA').css('width', data.Porcentagem_IA+'%')
-  $('.porcentagem_EM').css('width', data.Porcentagem_IM+'%')
+  $('.porcentagem_EM').css('width', data.Porcentagem_EM+'%')
   
-  $('.porcentagem_IM').html(data.Porcentagem_EM+'%')
+  $('.porcentagem_IM').html(data.Porcentagem_IM+'%')
   $('.porcentagem_IA').html(data.Porcentagem_IA+'%')
-  $('.porcentagem_EM').html(data.Porcentagem_IM+'%')
+  $('.porcentagem_EM').html(data.Porcentagem_EM+'%')
   
   $('#MetaMensal1_numero').text(data.IM+'/'+data.IM_Meta)
   
