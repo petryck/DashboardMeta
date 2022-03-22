@@ -260,19 +260,61 @@ setInterval(() => {
 
   })
 
-  function getYearlyWeekNumber(date){
-    let splitedDate = date.split("-")
-    let dateObj = new Date(+splitedDate[0], +splitedDate[1]-1, +splitedDate[2], 0,0,0,0 )
-    let firstDayYear = new Date(+splitedDate[0],0,1,0,0,0,0 )
-    let yearDay = ((dateObj - firstDayYear) / 86400000)+1
-    let weekInYear = +(String((yearDay + firstDayYear.getDay()+1) / 7).split(".")[0])
-    console.log(date, yearDay, weekInYear)
-    return { date, yearDay, weekInYear }
+  // function getYearlyWeekNumber(date){
+  //   let splitedDate = date.split("-")
+  //   let dateObj = new Date(+splitedDate[0], +splitedDate[1]-1, +splitedDate[2], 0,0,0,0 )
+  //   let firstDayYear = new Date(+splitedDate[0],0,1,0,0,0,0 )
+  //   let yearDay = ((dateObj - firstDayYear) / 86400000)+1
+  //   let weekInYear = +(String((yearDay + firstDayYear.getDay()+1) / 7).split(".")[0])
+  //   console.log(date, yearDay, weekInYear)
+  //   return { date, yearDay, weekInYear }
     
-   }
+  //  }
+
+   function getYearlyWeekNumber(date) {
+    var date = new Date(date); 
+    /* var date = new Date('2023-03-20').toLocaleString("pt-BR", {timeZone: "America/Sao_Paulo"}); */
+    date.setHours(0, 0, 0, 0); 
+    // Thursday in current week decides the year.
+    date.setDate(date.getDate() + 3 - (date.getDay() + 7) % 7);
+    // January 4 is always in week 1.
+    var week1 = new Date(date.getFullYear(), 0, 4);
+    // Adjust to Thursday in week 1 and count number of weeks from date to week1.
+    return 1 + Math.round(((date.getTime() - week1.getTime()) / 86400000 - 3 + (week1.getDay() + 6) % 7) / 7);
+    }
+    
+
+
+  //  function getYearlyWeekNumber(date){
+  //   var currentdate = new Date(date);
+  //   var oneJan = new Date(currentdate.getFullYear(),0,1);
+  //   var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+  //   var result = Math.ceil(( currentdate.getDay() + 1 + numberOfDays) / 7);
+  //   console.log(currentdate)
+  //   // console.log(`The week number of the current date (${currentdate}) is ${result}.`);
+
+  //   return result
+    
+  //  }
+
+
+
+  //  function semana(ano,mes,dia) {
+  //   function serial(dias) { return 86400000*dias; }
+  //   function dateserial(ano,mes,dia) { return (new Date(ano,mes-1,dia).valueOf()); }
+  //   function weekdia(date) { return (new Date(date)).getDay()+1; }
+  //   function anoserial(date) { return (new Date(date)).getFullYear(); }
+  //   var date = ano instanceof Date ? ano.valueOf() : typeof ano === "string" ? new Date(ano).valueOf() : dateserial(ano,mes,dia), 
+  //       date2 = dateserial(anoserial(date - serial(weekdia(date-serial(1))) + serial(4)),1,3);
+  //   return ~~((date - date2 + serial(weekdia(date2) + 5))/ serial(7));
+  // }
+
+  // semana('2022','03','19')
+
 
   app.get('/semanal', (req, res) => {
-
+    
+  
     // const d = new Date();
     // var day = DataHoje.getDay();
     // console.log(day)
@@ -282,9 +324,15 @@ setInterval(() => {
     day = '' + d.getDate(),
     year = d.getFullYear();
 
-    var semana = getYearlyWeekNumber(year+'-'+month+'-'+day).weekInYear+0
-
+    // var semana = getYearlyWeekNumber(year+'-'+month+'-'+day).weekInYear
+    var semana = getYearlyWeekNumber(year+'-'+month+'-'+day);
+    // var semana_temp = getYearlyWeekNumber(year+'-'+month+'-'+day);
     console.log(semana)
+
+    // console.log('semana temp ↓')
+    // console.log(semana_temp)
+
+   
 
 
     if (month.length < 2) 

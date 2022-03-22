@@ -144,6 +144,23 @@ function executa_fila(){
 
 
 
+
+
+$(document).on('click', '.btn_trocar_grafico', function(e){
+
+
+
+  if($('.dashboard_diario').css('display') == 'none'){
+    $('.dashboard_diario').css('display', 'block')
+    $('.dashboard_mensal').css('display', 'none')
+  }else{
+    $('.dashboard_diario').css('display', 'none')
+    $('.dashboard_mensal').css('display', 'block')
+  }
+
+
+
+})
 /*DASHBOARD DIARIO*/
 $(document).on('click', '.NumeroDias', function(e){
 
