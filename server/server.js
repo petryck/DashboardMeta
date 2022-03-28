@@ -417,7 +417,7 @@ setInterval(() => {
   Left Outer JOIN
     mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
   Left Outer JOIN
-    vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel ORDER BY Lhs.Data_Abertura_Processo DESC`)
+    vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
     .then(result => {
      
       res.json(result.recordset)
