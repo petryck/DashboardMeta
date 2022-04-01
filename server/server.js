@@ -327,7 +327,7 @@ setInterval(() => {
     // var semana = getYearlyWeekNumber(year+'-'+month+'-'+day).weekInYear
     var semana = getYearlyWeekNumber(year+'-'+month+'-'+day);
     // var semana_temp = getYearlyWeekNumber(year+'-'+month+'-'+day);
-    console.log(semana)
+
 
     // console.log('semana temp ↓')
     // console.log(semana_temp)
@@ -341,11 +341,9 @@ setInterval(() => {
         day = '0' + day;
 
     global.conn.request()
-    .query(`SELECT * FROM vis_Metas_Semanal WHERE Semana_Abertura = ${semana} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`)
+    .query(`SELECT * FROM vis_Metas_Semanal WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`)
     .then(result => {
-
-      console.log(result.recordset[0])
-    
+  
       res.json(result.recordset[0])
     })
     .catch(err => {
