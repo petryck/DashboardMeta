@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+html{
+    margin: 0px !important;
+    padding: 0 !important; 
+}
+
+
+.dashboard_mensal{
+    display: none;
+    transform: opacity 2s !important;;
+}
+.dashboard_diario{
+    display: block;
+    transform: opacity 2s !important;;
+}
+
+body{
+    font-family: 'Montserrat' !important;
+    font-size: 14px;
+    background-color: #fff!important;
+    margin: 0px !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.dashboard_diario .col-2{
+    zoom: 130%;
+}
+
+.dashboard_diario .DiasLateral{
+    width: 78px;
+    height: auto;
+    right: 0px;
+    text-align: right;
+    position: absolute;
+}
+
+.dashboard_diario .Transparente{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    transition: filter 0.6s;
+}
+
+.dashboard_diario .NumeroDias{
+    width: 100%;
+    height: 81px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    transition: width 0.5s;
+    cursor: pointer;
+    float: right;    
+    z-index: 10;
+}
+
+.dashboard_diario .NomeMes{
+    z-index: 1;
+    opacity: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.dashboard_diario .NumeroDias > .active{
+    transition: width 0.6s, opacity 2s;
+    opacity: 1;
+    color: rgb(249,249,249);
+}
+
+.dashboard_diario .NomeDia{
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+    font-size: 12px;
+    position: absolute;
+    margin-top: 27px;
+    margin-left: -80px;
+}
+
+.dashboard_diario .DiasLateral > .active{
+    width: 130px;
+    background-color: #ff0000;
+    color: rgb(249,249,249);
+    transition: width 0.6s, opacity 2s;
+}
+
+.dashboard_diario .TopProcesso{
+    background-color: transparent;
+    border-radius: 6px;
+    max-height: 700px;
+    margin-bottom: 6px;
+}
+
+.dashboard_diario .TituloProcesso{
+    font-size: 32px;
+}
+
+.dashboard_diario .card{
+    width: 530px;
+    background-color: #f9f9f9 !important;
+    border: none !important;
+}
+
+.dashboard_diario #cardFotoSales{
+    background-color: transparent;
+    width: 75px;
+    height: 75px;
+    right: 10px;
+    top: 0px;
+    position: absolute;
+    border-radius: 0.25rem;
+}
+
+.dashboard_diario #cardFotoInside{
+    background-color: transparent;
+    width: 75px;
+    height: 75px;
+    right: 10px;
+    bottom: 0px;
+    position: absolute;
+    border-radius: 0.25rem;
+}
+
+.dashboard_diario .FotoSales{
+    width: 75px;
+    height: 75px;
+    border-radius: 0.25rem;
+    position: absolute;
+    left: 90px;
+}
+
+.dashboard_diario .progress-bar.importacao{
+    background-color: #ff0000 !important;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+    font-size: 16px;
+}
+
+.dashboard_diario .progress-bar.exportacao{
+    background-color: #36cd72;
+    border-radius: 10px !important;
+    font-weight: bold !important;
+    font-size: 16px;
+}
+
+.dashboard_diario .progress{
+    position: relative;
+    height: 2rem !important;
+    width: 351px !important;
+    right: -242px !important;
+    border-radius: 10px !important;
+}
+
+.dashboard_diario .graficos{
+    margin-bottom: 75px;
+}
+
+.dashboard_diario #MetaMensal1{
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: 240px !important;
+    left: 495px !important;
+}
+
+.dashboard_diario #MetaMensal2{
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: 493px !important;
+    left: 495px !important;
+}
+
+.dashboard_diario #MetaMensal3{
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: 746px !important;
+    left: 495px !important;
+}
+
+.dashboard_diario .iconsProcesso{
+    width: 53px;
+    height: 53px;
+    position: absolute;
+    top: 74px !important;
+    left: 302px !important;
+}
+
+.dashboard_diario #IconeModal1{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -92px !important;
+    left: 11px !important;
+}
+
+.dashboard_diario #IconeModal2{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -96px !important;
+    left: 12px !important;
+}
+
+.dashboard_diario #IconeModal3{
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: bold;
+    font-size: 24px;
+    top: -96px !important;
+    left: 12px !important;
+}
+
+.dashboard_diario #ModalMeta1{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -43px !important;
+    left: 24px !important;
+    color: #383839;
+}
+
+.dashboard_diario #ModalMeta2{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -46px !important;
+    left: 21px !important;
+    color: #383839;
+}
+
+.dashboard_diario #ModalMeta3{
+    width: 24px;
+    height:24px;
+    position: absolute;
+    font-weight: bold;
+    /* font-size: 24px; */
+    top: -44px !important;
+    left: 24px !important;
+    color: #383839;
+}
+body {
+    zoom: 90%;
+  }
+
+@media screen and (max-width: 1600px) {
+    body {
+      zoom: 80%;
+    }
+  }

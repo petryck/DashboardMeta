@@ -75,6 +75,7 @@ app.use(cors())
 
 app.use('/', express.static(path.join(__dirname, '../public')))
 
+
 var connection = mysql.createConnection({
   host: "ads-con.csvfil6euj3s.sa-east-1.rds.amazonaws.com",
   user: "ads",
@@ -218,11 +219,22 @@ setInterval(() => {
 
 
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../public/index.html'))
+    res.sendFile(path.join(__dirname, '../public/entrada/index.html'))
   })
 
   app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/login.html'))
+  })
+
+
+  app.get('/itj', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/itj/index.html'))
+  })
+  app.get('/nh', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/nh/index.html'))
+  })
+  app.get('/sp', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/sp/index.html'))
   })
 
 

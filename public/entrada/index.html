@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="../entrada/styles.css" />
+  </head>
+  <body>
+
+  <img src="https://conlinebr.com.br/img/logo/conline1.png" alt="" style="position: absolute;top: 56px;width: 349px;">
+
+    <div data-url="/itj" class="card">
+      <div class="card-image" ></div>
+      <div class="card-text">
+        <span class="date">Acessar</span>
+        <h2>Itajaí</h2>
+        <p>Métricas e informaçoes sobre metas da filial de Itajaí</p>
+      </div>
+    </div>
+    <div data-url="/nh" class="card">
+      <div class="card-image card2"></div>
+      <div class="card-text card2">
+        <span class="date">Acessar</span>
+        <h2>Novo Hamburgo</h2>
+        <p>Métricas e informaçoes sobre metas da filial de Novo Hamburgo</p>
+      </div>
+    </div>
+    <div data-url="/sp" class="card">
+        <div class="card-image card3"></div>
+        <div class="card-text card3">
+          <span class="date">Acessar</span>
+          <h2>São Paulo</h2>
+          <p>Métricas e informaçoes sobre metas da filial de São Paulo</p>
+        </div>
+    </div>
+    <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.js"></script>
+   
+   
+    <script>
+      VanillaTilt.init(document.querySelectorAll(".card"),{
+        glare: true,
+        reverse: true,
+        "max-glare": 0.15
+      });
+
+
+      // $(document).on('mouseover', '.card', function(e){
+      //   $(this).addClass('rgb');
+      // })
+
+      // $(document).on('mouseout', '.card', function(e){
+      //   $(this).removeClass('rgb');
+      // })
+
+
+      $(document).on('click', '.card', function(e){
+        var url = $(this).data('url');
+        window.location.assign(url);
+      })
+
+      
+
+
+
+
+    </script>
+  </body>
+</html>
