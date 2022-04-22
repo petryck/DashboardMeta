@@ -409,7 +409,7 @@ setInterval(() => {
   app.get('/ultimos', (req, res) => {
 
     global.conn.request()
-    .query(`SELECT TOP 5
+    .query(`SELECT TOP 4
     FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
     Lhs.Numero_Processo,
     Lhs.Data_Abertura_Processo,

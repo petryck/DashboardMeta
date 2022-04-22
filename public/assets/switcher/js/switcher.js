@@ -19,11 +19,23 @@ jQuery('.demo-icon').click(function() {
     }
 });
 
-//p-scroll bar
-const ps5 = new PerfectScrollbar('.sidebar-right1', {
-    useBothWheelAxes: true,
-    suppressScrollX: true,
+jQuery('.demo-icon2').click(function() {
+    if ($('.demo_changer').hasClass("active")) {
+        $('.demo_changer').animate({ "right": "-270px" }, function() {
+            $('.demo_changer').toggleClass("active");
+        });
+    } else {
+        $('.demo_changer').animate({ "right": "0px" }, function() {
+            $('.demo_changer').toggleClass("active");
+        });
+    }
 });
+
+//p-scroll bar
+// const ps5 = new PerfectScrollbar('.sidebar-right1', {
+//     useBothWheelAxes: true,
+//     suppressScrollX: true,
+// });
 
 
 // Switcher Close //

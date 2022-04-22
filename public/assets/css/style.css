@@ -21716,6 +21716,9 @@ ul.timeline>li:before {
 }
 
 .footer {
+    /* bottom: 0;
+    position: absolute;
+    width: 100%; */
     background: #fff;
     border-top: 1px solid #eaedf1;
     font-size: 0.875rem;
@@ -70925,6 +70928,67 @@ html [type=button],
     margin-left: 27px;
     font-weight: 800;
     text-align: center;
+}
+
+
+.Dias_lateral .NumeroDias_lateral{
+    
+    margin-bottom: 5px;
+}
+
+.Dias_lateral .NumeroDias_lateral{
+    /* border-radius: 2px 2px 0 0; */
+    /* width: 103px; */
+    border-bottom: none !important;
+    display: block;    
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.Dias_lateral .NumeroDias_lateral h3{
+    font-size: 26px !important;
+    margin-right: 30px;
+}
+
+.Dias_lateral .NumeroDias_lateral h6{
+    display: none;
+    margin-right: 22px;
+}
+
+.Dias_lateral .mes_lateral{
+    display: none;
+}
+
+.hoje_lateral h6{
+    display: block !important;
+}
+
+.hoje_lateral .mes_lateral{
+    display: contents !important;
+}
+
+
+
+
+.Dias_lateral{
+    margin-top: 20px;
+    background: none;
+}
+.pai_dias_lateral{
+    right: -58px;
+}
+
+.hoje_lateral{
+    color: white;
+    margin-left: -40px;
+    background-color: #ff0000 !important;
+}
+
+.avatar_operacional{
+    margin-left: 360px;
+    position: absolute;
+    right: 8px;
+    bottom: -18px;
 }
 
 
