@@ -1,15 +1,15 @@
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 var lista_espera_processos = [];
-var channel = io();
+// var channel = io();
 
 
-channel.on('novoProcesso', (e) => {
-    console.log('novo processo')
+// channel.on('novoProcesso', (e) => {
+//     console.log('novo processo')
 
-    // lista_espera_processos.push(e);
+//     // lista_espera_processos.push(e);
 
 
-  })
+//   })
 
 setInterval(() => {
 
@@ -93,10 +93,11 @@ function menu_dias(){
   
   }
 
-  function lista_novos_processos(){
+  function lista_novos_processos(filial){
     $.ajax({
       type: 'GET',
       url: '/ultimos',
+      data:{filial:filial},
       contentType: 'application/json',
       success: function (data) {
     
@@ -188,10 +189,11 @@ function menu_dias(){
   }
 
 
-  function lista_mensal(){
+  function lista_mensal(filial){
     $.ajax({
       type: 'GET',
       url: '/mensal',
+      data:{filial:filial},
       contentType: 'application/json',
       success: function (data) {
   var mes_nomes = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"]
@@ -204,46 +206,6 @@ function menu_dias(){
   $('.corpo_grafico_expo_maritima').html('')
   data.forEach(element => {
   
-//     var corpo_grafico = '<div class="row row_new">'
-//   corpo_grafico += '<div class="col-3 colunaIA">'
-//   corpo_grafico += '<div class="MesPai">'
-//   corpo_grafico += '<div class="fundoCinza"></div>'
-//   corpo_grafico += '<span class="MesAno">'+mes_nomes[element.Mes_Abertura - 1]+'</span>'
-//   corpo_grafico += '<div class="progress">'
-//   corpo_grafico += '<div class="progress-bar esquerda" role="progressbar" style="width: '+((element.IA*100)/element.IA_Meta)+'%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">'+element.Porcentagem_IA+'%</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<span class="MetaEscrito">'+element.IA+'/'+element.IA_Meta+'</span>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<div class="col-3 colunaIM">'
-//   corpo_grafico += '<div class="MesPai">'
-//   corpo_grafico += '<div class="progress">'
-//   corpo_grafico += '<div class="progress-bar esquerda" role="progressbar" style="width: '+((element.IM*100)/element.IM_Meta)+'%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">'+element.Porcentagem_IM+'%</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<span class="MetaEscrito">'+element.IM+'/'+element.IM_Meta+'</span>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<div class="col-3 colunaEA">'
-//   corpo_grafico += '<div class="MesPai">'
-//   corpo_grafico += '<div class="progress">'
-//   corpo_grafico += '<div class="progress-bar direita" role="progressbar" style="width: '+((element.EA*100)/element.EA_Meta)+'%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">'+element.Porcentagem_EA+'%</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<span class="MetaEscrito">'+element.EA+'/'+element.EA_Meta+'</span>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<div class="col-3 colunaEM">'
-//   corpo_grafico += '<div class="MesPai">'
-//   corpo_grafico += '<div class="progress">'
-//   corpo_grafico += '<div class="progress-bar direita" role="progressbar" style="width: '+((element.EM*100)/element.EM_Meta)+'%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">'+element.Porcentagem_EM+'%</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '<span class="MetaEscrito">'+element.EM+'/'+element.EM_Meta+'</span>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '</div>'
-//   corpo_grafico += '</div>'
-
-  
-
-
 
   var progressbar = ` <div class="row" style="margin-top: 11px">
                         <div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
@@ -288,20 +250,6 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
 
   });
     
-    // $('.porcentagem_IM').css('width', data.Porcentagem_EM+'%')
-    // $('.porcentagem_IA').css('width', data.Porcentagem_IA+'%')
-    // $('.porcentagem_EM').css('width', data.Porcentagem_IM+'%')
-    
-    // $('.porcentagem_IM').html(data.Porcentagem_EM+'%')
-    // $('.porcentagem_IA').html(data.Porcentagem_IA+'%')
-    // $('.porcentagem_EM').html(data.Porcentagem_IM+'%')
-    
-    // $('#MetaMensal1_numero').text(data.IM+'/'+data.IM_Meta)
-    
-    // $('#MetaMensal2_numero').text(data.IA+'/'+data.IA_Meta)
-    
-    // $('#MetaMensal3_numero').text(data.EM+'/'+data.EM_Meta)
-    
     
       }
     
@@ -309,8 +257,166 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
   }
 
 
+  function lista_anual(filial){
+    $.ajax({
+      type: 'GET',
+      url: '/anual',
+      data:{filial:filial},
+      contentType: 'application/json',
+      success: function (data) {
+    
+    $('#porcentagem_anual_ea').text(data[0].Porcentagem_EA)
+    $('#porcentagem_anual_em').text(data[0].Porcentagem_EM)
+    $('#porcentagem_anual_ia').text(data[0].Porcentagem_IA)
+    $('#porcentagem_anual_im').text(data[0].Porcentagem_IM)
+  
+    
+  
+    $('#grafico_ea').css('stroke-dashoffset', 300-(data[0].Porcentagem_EA*3))
+    $('#grafico_em').css('stroke-dashoffset', 300-(data[0].Porcentagem_EM*3))
+    $('#grafico_ia').css('stroke-dashoffset', 300-(data[0].Porcentagem_IA*3))
+    $('#grafico_im').css('stroke-dashoffset', 300-(data[0].Porcentagem_IM*3))
+  
+  
+    
+    console.log(data)
+    
+    
+      }
+    
+    })
+  }
+
+  function calcular_grafico(valor0, valor1){
+    var calcular_ = ((valor0*180)/valor1);
+   
+    if(calcular_ > 180){
+      return 180
+    }else{
+      return calcular_;
+    }
+  
+    
+  }
+
+  function lista_diario(filial){
+    $.ajax({
+      type: 'GET',
+      url: '/diario',
+      data:{filial:filial},
+      contentType: 'application/json',
+      success: function (data) {
+    
+    
+    $('.number_im').html(data.IM +'/'+ data.IM_Meta)
+    $('.number_ia').html(data.IA +'/'+ data.IA_Meta)
+    $('.number_ea').html(data.EA +'/'+ data.EA_Meta)
+    $('.number_em').html(data.EM +'/'+ data.EM_Meta)
+    
+    
+    var calc_ia = 'rotate('+calcular_grafico(data.IA, data.IA_Meta)+'deg'+')';
+    var calc_im = 'rotate('+calcular_grafico(data.IM, data.IM_Meta)+'deg'+')';
+    var calc_ea = 'rotate('+calcular_grafico(data.EA, data.EA_Meta)+'deg'+')';
+    var calc_em = 'rotate('+calcular_grafico(data.EM, data.EM_Meta)+'deg'+')';
+
+
+    $('#ia_grafico').css('transform', calc_ia)
+    $('#im_grafico').css('transform', calc_im)
+    $('#ea_grafico').css('transform', calc_ea)
+    $('#em_grafico').css('transform', calc_em)
+    
+  
+      }
+    
+    })
+  }
+
+
+  function lista_semanal(filial){
+    $.ajax({
+      type: 'GET',
+      url: '/semanal',
+      data:{filial:filial},
+      contentType: 'application/json',
+      success: function (data) {
+    
+    
+    
+    // $('.porcentagem_IM').css('width', data.Porcentagem_IM+'%')
+    // $('.porcentagem_IA').css('width', data.Porcentagem_IA+'%')
+    // $('.porcentagem_EM').css('width', data.Porcentagem_EM+'%')
+    
+    // $('.porcentagem_IM').html(data.Porcentagem_IM+'%')
+    // $('.porcentagem_IA').html(data.Porcentagem_IA+'%')
+    // $('.porcentagem_EM').html(data.Porcentagem_EM+'%')
+
+
+   if(data.IM < 10){
+    data.IM = '0'+data.IM
+   }
+
+   if(data.IM_Meta < 10){
+    data.IM_Meta = '0'+data.IM_Meta
+   }
+
+   if(data.IA < 10){
+    data.IA = '0'+data.IA
+   }
+
+   if(data.IA_Meta < 10){
+    data.IA_Meta = '0'+data.IA_Meta
+   }
+
+   if(data.EA < 10){
+    data.EA = '0'+data.EA
+   }
+
+   if(data.EA_Meta < 10){
+    data.EA_Meta = '0'+data.EA_Meta
+   }
+
+
+   if(data.EM < 10){
+    data.EM = '0'+data.EM
+   }
+
+   if(data.EM_Meta < 10){
+    data.EM_Meta = '0'+data.EM_Meta
+   }
+
+    
+    $('.semanal_im').html(`<span class="numero_cima">${data.IM}</span>
+                                   <span class="numero_barra">----</span>
+                                  <span class="nr_baixo">${data.IM_Meta}</span>`)
+
+    $('.semanal_ia').html(`<span class="numero_cima">${data.IA}</span>
+                                   <span class="numero_barra">----</span>
+                                  <span class="nr_baixo">${data.IA_Meta}</span>`)
+    
+    $('.semanal_ea').html(`<span class="numero_cima">${data.EA}</span>
+                                   <span class="numero_barra">----</span>
+                                  <span class="nr_baixo">${data.EA_Meta}</span>`)
+
+    $('.semanal_em').html(`<span class="numero_cima">${data.EM}</span>
+                                   <span class="numero_barra">----</span>
+                                  <span class="nr_baixo">${data.EM_Meta}</span>`)
+
+    
+      }
+    
+    })
+  }
+
+  $(document).on('click', '#btn_volta_filiais', function(e){
+
+    window.location.href = "/";
+  })
+
+
+  
+  
 // EXECUTAR
-  lista_mensal()
-  lista_novos_processos()
+ 
   menu_dias()
 
+ 

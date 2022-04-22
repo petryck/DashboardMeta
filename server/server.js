@@ -257,16 +257,33 @@ setInterval(() => {
     if (day.length < 2) 
         day = '0' + day;
 
-    global.conn.request()
-    .query(`SELECT * FROM vis_Metas_Diaria WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`)
-    .then(result => {
+        if(req.query.filial == 'itj'){
 
-      res.json(result.recordset[0])
-    })
-    .catch(err => {
-      console.log(err)
-      return err;
-    });
+          global.conn.request()
+          .query(`SELECT * FROM vis_Metas_Diaria_ITJ WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`)
+          .then(result => {
+      
+            res.json(result.recordset[0])
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+
+        }else if(req.query.filial == 'nh'){
+
+          global.conn.request()
+          .query(`SELECT * FROM vis_Metas_Diaria_NH WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`)
+          .then(result => {
+      
+            res.json(result.recordset[0])
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+        }
+   
 
   
 
@@ -352,16 +369,34 @@ setInterval(() => {
     if (day.length < 2) 
         day = '0' + day;
 
-    global.conn.request()
-    .query(`SELECT * FROM vis_Metas_Semanal WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`)
-    .then(result => {
-  
-      res.json(result.recordset[0])
-    })
-    .catch(err => {
-      console.log(err)
-      return err;
-    });
+        if(req.query.filial == 'itj'){
+
+          global.conn.request()
+          .query(`SELECT * FROM vis_Metas_Semanal_ITJ WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`)
+          .then(result => {
+        
+            res.json(result.recordset[0])
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+
+        }else if(req.query.filial == 'nh'){
+
+          global.conn.request()
+          .query(`SELECT * FROM vis_Metas_Semanal_NH WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`)
+          .then(result => {
+        
+            res.json(result.recordset[0])
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+
+        }
+   
 
   
 
@@ -370,8 +405,10 @@ setInterval(() => {
 
   app.get('/mensal', (req, res) => {
 
-    global.conn.request()
-    .query(`SELECT * FROM vis_Metas_Mensal`)
+    if(req.query.filial == 'itj'){
+
+      global.conn.request()
+    .query(`SELECT * FROM vis_Metas_Mensal_ITJ`)
     .then(result => {
      
       res.json(result.recordset)
@@ -380,23 +417,56 @@ setInterval(() => {
       console.log(err)
       return err;
     });
+
+    }else if(req.query.filial == 'nh'){
+
+      global.conn.request()
+      .query(`SELECT * FROM vis_Metas_Mensal_NH`)
+      .then(result => {
+       
+        res.json(result.recordset)
+      })
+      .catch(err => {
+        console.log(err)
+        return err;
+      });
+
+    }
+    
 
   
 
   })
 
   app.get('/anual', (req, res) => {
+    
+    
+if(req.query.filial == 'itj'){
 
-    global.conn.request()
-    .query(`SELECT * FROM vis_Metas_Anual`)
-    .then(result => {
-     
-      res.json(result.recordset)
-    })
-    .catch(err => {
-      console.log(err)
-      return err;
-    });
+  global.conn.request()
+  .query(`SELECT * FROM vis_Metas_Anual_ITJ`)
+  .then(result => {
+   
+    res.json(result.recordset)
+  })
+  .catch(err => {
+    console.log(err)
+    return err;
+  });
+}else if(req.query.filial == 'nh'){
+
+  global.conn.request()
+  .query(`SELECT * FROM vis_Metas_Anual_NH`)
+  .then(result => {
+   
+    res.json(result.recordset)
+  })
+  .catch(err => {
+    console.log(err)
+    return err;
+  });
+}
+   
 
   
 

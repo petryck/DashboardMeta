@@ -1,6 +1,6 @@
 // <reference path="../phaser.d.ts" />
 // import geckos from '@geckos.io/client'
-import { io } from "socket.io-client";
+
 // import { io } from "https://cdn.socket.io/4.3.2/socket.io.esm.min.js";
 console.log('iniciados')
 
