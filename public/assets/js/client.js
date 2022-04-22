@@ -4,11 +4,12 @@ var channel = io();
 
 
 channel.on('novoProcesso', (e) => {
-   
+
+    if(filial == e.Empresa){
 
     lista_espera_processos.push(e);
    
-
+    }
 
   })
 
@@ -38,7 +39,7 @@ function executa_fila(){
     //   ProcessoNovo()
     
 
-    if(filial == lista_espera_processos[0].Empresa){
+    
        
         ProcessoNovo_mostrar()
         lista_novos_processos(lista_espera_processos[0].Empresa)
@@ -53,7 +54,7 @@ function executa_fila(){
       //   setTimeout(() => {
       //     $('#status_new_pross').val(1)
       //   }, 15000);
-    }
+    
       
 
  

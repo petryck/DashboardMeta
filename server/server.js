@@ -172,9 +172,10 @@ io.on("connection", (socket) => {
 function novoProcesso(){
 
   global.conn.request()
-  .query(`SELECT TOP 4
+  .query(`SELECT TOP 1
   FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
   Lhs.Numero_Processo,
+  Lhs.IdLogistica_House as IdProcesso,
   Lhs.Data_Abertura_Processo,
   Vnd.Nome as Vendedor,
   Vnd.Foto as Foto_Vendedor,
@@ -199,13 +200,16 @@ Join
   vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 3) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
   .then(result => {
 
-    console.log('Verificando se existe novos processos')
+ 
+
+
+   
     if(ultimoid_processo == result.recordset[0].IdProcesso){
       // io.emit('novoProcesso',result.recordset[0]);
-      console.log('Nenhum novo processo encontrado')
+   
     }else{
-      console.log('Encontramos um novo processo')
-      ultimoid_processo = result.recordset[0].IdProcesso
+   
+      ultimoid_processo = result.recordset[0].IdProcesso;
       io.emit('novoProcesso',result.recordset[0]);
     }
   
@@ -220,7 +224,7 @@ Join
 
 setInterval(() => {
   novoProcesso()
-}, 20000);
+}, 5000);
 
 
 
