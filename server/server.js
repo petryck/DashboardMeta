@@ -478,35 +478,76 @@ if(req.query.filial == 'itj'){
 
   app.get('/ultimos', (req, res) => {
 
-    global.conn.request()
-    .query(`SELECT TOP 4
-    FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
-    Lhs.Numero_Processo,
-    Lhs.Data_Abertura_Processo,
-    Vnd.Nome as Vendedor,
-    Vnd.Foto as Foto_Vendedor,
-    Ins.Nome as InsideSales,
-    Ins.Foto as Foto_InsideSales,
-    Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
-  From
-    mov_Logistica_House Lhs
-  JOIN
-    mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
-  Left Outer JOIN
-    vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
-  Left Outer JOIN
-    mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
-  Left Outer JOIN
-    vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
-    .then(result => {
-     
-      res.json(result.recordset)
-    })
-    .catch(err => {
-      console.log(err)
-      return err;
-    });
+    if(req.query.filial == 'itj'){
 
+      global.conn.request()
+      .query(`SELECT TOP 4
+      FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
+      Lhs.Numero_Processo,
+      Lhs.Data_Abertura_Processo,
+      Vnd.Nome as Vendedor,
+      Vnd.Foto as Foto_Vendedor,
+      Ins.Nome as InsideSales,
+      Ins.Foto as Foto_InsideSales,
+      Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+    From
+      mov_Logistica_House Lhs
+    JOIN
+      mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
+    Left Outer JOIN
+      vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
+    Left Outer JOIN
+      mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
+    Left Outer JOIN
+      vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
+    Join
+      vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 1) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
+      .then(result => {
+       
+        res.json(result.recordset)
+      })
+      .catch(err => {
+        console.log(err)
+        return err;
+      });
+
+
+    }else if(req.query.filial == 'nh'){
+
+      global.conn.request()
+      .query(`SELECT TOP 4
+      FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
+      Lhs.Numero_Processo,
+      Lhs.Data_Abertura_Processo,
+      Vnd.Nome as Vendedor,
+      Vnd.Foto as Foto_Vendedor,
+      Ins.Nome as InsideSales,
+      Ins.Foto as Foto_InsideSales,
+      Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+    From
+      mov_Logistica_House Lhs
+    JOIN
+      mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
+    Left Outer JOIN
+      vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
+    Left Outer JOIN
+      mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
+    Left Outer JOIN
+      vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
+    Join
+      vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 3) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
+      .then(result => {
+       
+        res.json(result.recordset)
+      })
+      .catch(err => {
+        console.log(err)
+        return err;
+      });
+
+  
+    }
+    
   
 
   })
