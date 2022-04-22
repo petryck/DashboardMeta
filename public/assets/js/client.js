@@ -1,15 +1,112 @@
 // import { io } from "socket.io-client";
 var lista_espera_processos = [];
-// var channel = io();
+var channel = io();
 
 
-// channel.on('novoProcesso', (e) => {
-//     console.log('novo processo')
+channel.on('novoProcesso', (e) => {
+   
 
-//     // lista_espera_processos.push(e);
+    lista_espera_processos.push(e);
+   
 
 
-//   })
+  })
+
+
+setInterval(() => {
+
+    if(lista_espera_processos.length > 0){
+     executa_fila()
+    //  $('#status_new_pross').val(2)
+    }
+   
+}, 14000);
+
+
+function executa_fila(){
+
+
+    $('#nome_vendedor_foguete').text(lista_espera_processos[0].Vendedor)
+      $('#img_vendedor_foguete').attr('src', lista_espera_processos[0].Foto_Vendedor)
+      $('#img_inside_foguete').attr('src', lista_espera_processos[0].Foto_InsideSales)
+      
+      $('#nome_inside_foguete').text(lista_espera_processos[0].InsideSales)
+      $('#numero_processo_foguete').text(lista_espera_processos[0].Numero_Processo)
+      $('#data_processo_foguete').text(lista_espera_processos[0].data_Abertura_Convertido)
+
+
+    //   ProcessoNovo()
+    
+
+    if(filial == lista_espera_processos[0].Empresa){
+       
+        ProcessoNovo_mostrar()
+        lista_novos_processos(lista_espera_processos[0].Empresa)
+        lista_diario(lista_espera_processos[0].Empresa)
+        lista_semanal(lista_espera_processos[0].Empresa)
+        lista_anual(lista_espera_processos[0].Empresa)
+        lista_mensal(lista_espera_processos[0].Empresa)
+        // lista_espera_processos.shift();
+        lista_espera_processos.splice(0, 1); 
+      //   console.log(lista_espera_processos)
+  
+      //   setTimeout(() => {
+      //     $('#status_new_pross').val(1)
+      //   }, 15000);
+    }
+      
+
+ 
+
+      
+
+}
+
+
+function ProcessoNovo_mostrar(){
+    $('.ProcessoNovo').css('display','block');
+    $('#canvas').css('display','block');
+    $('.ProcessoNovo').css('z-index','3');
+    $('.ProcessoNovo').css('opacity','1');
+    $('.rocket').css('opacity','1');
+    $('.ProcessoNovo').css('top','0');
+    $('.rocket').css('top','20%');
+
+    $('.textoProcesso').css('opacity','1');
+    $('#canvas').css('z-index','2');
+    $('#canvas').css('opacity','0.7');
+    $('.Transparente').css('filter','blur(8px)');
+
+    setTimeout(() => {
+        $('.textoProcesso').css('transform','scale(5)');
+    }, 3000);
+
+
+    setTimeout(() => {
+        $('.textoProcesso').css('transform','scale(0)');
+         $('#canvas').css('opacity','0');
+         $('.rocket').css('top','-100%');
+                setTimeout(() => {
+                    ProcessoNovo_esconder()
+                    }, 2000);
+     }, 12000);
+
+    // setTimeout(() => {
+    //     ProcessoNovo_esconder()
+    // }, 5000);
+  }
+  
+
+  function ProcessoNovo_esconder(){
+    $('.ProcessoNovo').css('opacity','0');
+    $('#canvas').css('opacity','0');
+    $('#canvas').css('z-index','1');
+    $('.ProcessoNovo').css('z-index','1');
+    $('.ProcessoNovo').css('top','100%');
+    $('.rocket').css('top','100%');
+ 
+    
+  }
 
 setInterval(() => {
 
@@ -52,7 +149,7 @@ setInterval(() => {
         $('#metricas_automaticas_pai').attr('checked', true)
         notif({
             type: "warning",
-            msg: "Métricas automaticas ativida a cada 30 segundos.",
+            msg: "Troca automatica de métricas ativada a cada 30 segundos.",
             position: "left"
         });
     }

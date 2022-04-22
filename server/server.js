@@ -172,16 +172,19 @@ io.on("connection", (socket) => {
 function novoProcesso(){
 
   global.conn.request()
-  .query(`SELECT TOP 1
+  .query(`SELECT TOP 4
   FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
   Lhs.Numero_Processo,
   Lhs.Data_Abertura_Processo,
-  Lhs.IdLogistica_House as IdProcesso,
   Vnd.Nome as Vendedor,
   Vnd.Foto as Foto_Vendedor,
   Ins.Nome as InsideSales,
   Ins.Foto as Foto_InsideSales,
-  Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+  Lms.Modalidade_Processo, /*Aereo / MAritimo / Terrestre*/
+  Case
+    When Fnc.IdEmpresa = 1 Then 'itj'
+    When Fnc.IdEmpresa = 3 Then 'nh'
+  End as Empresa
 From
   mov_Logistica_House Lhs
 JOIN
@@ -191,13 +194,17 @@ Left Outer JOIN
 Left Outer JOIN
   mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
 Left Outer JOIN
-  vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel ORDER BY Lhs.Data_Abertura_Processo DESC`)
+  vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
+Join
+  vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 3) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
   .then(result => {
 
+    console.log('Verificando se existe novos processos')
     if(ultimoid_processo == result.recordset[0].IdProcesso){
       // io.emit('novoProcesso',result.recordset[0]);
-      console.log('executando novo processo')
+      console.log('Nenhum novo processo encontrado')
     }else{
+      console.log('Encontramos um novo processo')
       ultimoid_processo = result.recordset[0].IdProcesso
       io.emit('novoProcesso',result.recordset[0]);
     }

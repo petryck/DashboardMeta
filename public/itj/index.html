@@ -27,6 +27,7 @@
       <link href="../assets/switcher/css/switcher.css" rel="stylesheet">
      
       <link href="../assets/css/velocimetro.css" rel="stylesheet">
+      <link href="../assets/css/processoNovo.css" rel="stylesheet">
       <meta http-equiv="imagetoolbar" content="no">
       <style type="text/css">
          <!-- input,textarea{-webkit-touch-callout:default;-webkit-user-select:auto;-khtml-user-select:auto;-moz-user-select:text;-ms-user-select:text;user-select:text} *{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:-moz-none;-ms-user-select:none;user-select:none} -->
@@ -650,7 +651,7 @@
          <div id="global-loader" style="display: none;"> <img src="../assets/images/loader.svg" class="loader-img" alt="Loader"> </div>
          <!-- /GLOBAL-LOADER --> <!-- PAGE --> 
          <div class="page">
-            <div class="page-main">
+            <div class="page-main" style="z-index:2">
                <!-- app-Header --> 
             
     
@@ -1297,31 +1298,44 @@
                <!--app-content end--> 
             </div>
             <!-- Sidebar-right --> 
-            <div class="sidebar sidebar-right sidebar-animate ps">
-               <div class="panel panel-primary card mb-0 shadow-none border-0">
-                  <div class="tab-menu-heading border-0 d-flex p-3">
-                     <div class="card-title mb-0">Notifications</div>
-                     <div class="card-options ms-auto"> <a href="javascript:void(0);" class="sidebar-icon text-end float-end me-1" data-bs-toggle="sidebar-right" data-target=".sidebar-right"><i class="fe fe-x text-white"></i></a> </div>
-                  </div>
-                  <div class="panel-body tabs-menu-body latest-tasks p-0 border-0">
-                     <div class="tabs-menu border-bottom">
-                        <!-- Tabs --> 
-                        <ul class="nav panel-tabs">
-                           <li class=""><a href="#side1" class="active" data-bs-toggle="tab"><i class="fe fe-user me-1"></i> Profile</a></li>
-                           <li><a href="#side2" data-bs-toggle="tab"><i class="fe fe-users me-1"></i> Contacts</a></li>
-                           <li><a href="#side3" data-bs-toggle="tab"><i class="fe fe-settings me-1"></i> Settings</a></li>
-                        </ul>
-                     </div>
-                   
-                  </div>
+
+            <div class="ProcessoNovo" style="z-index: 1;opacity: 0;display: none;">
+               <div class="rocket" >
+               <div class="rocket-body">
+                 <div class="body"></div>
+                 <div class="fin fin-left"></div>
+                 <div class="fin fin-right"></div>
+                 <div class="window"></div>
                </div>
-               <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                  <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+               <div class="exhaust-flame"></div>
+               <ul class="exhaust-fumes">
+                
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 <li></li>
+                 
+               </ul>
+               <div class="textoProcesso">
+                 <img class="FotoFoguete Sales" id="img_vendedor_foguete" src="">
+                 <span class="NomeResponsaveis Vendedor" id="nome_vendedor_foguete"></span>
+                 <span class="NomeCargo Vendedor">Vendedor</span>
+                 <img class="FotoFoguete InsideSales" id="img_inside_foguete" src="">
+                 <span class="NomeResponsaveis InsideSales" id="nome_inside_foguete"></span>
+                 <span class="NomeCargo InsideSales">Inside Sales</span>
+                 <span class="NumeroProcesso Normal">Nº</span><span class="NumeroProcesso Bold" id="numero_processo_foguete"></span>
+                 <span class="NumeroProcesso Data" id="data_processo_foguete"></span>
                </div>
-               <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                  <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 0px;"></div>
-               </div>
-            </div>
+             </div>
+           </div>
+
+           <canvas id="canvas" style="z-index: 1;display: none;"></canvas>
+         
             <!--/Sidebar-right--> <!-- FOOTER --> 
             <footer class="footer">
                <div class="container">
@@ -1333,8 +1347,13 @@
             <!-- FOOTER END --> 
          </div>
          <!-- BACK-TO-TOP --> <a href="#top" id="back-to-top" style="display: none;"><i class="fa fa-angle-up"></i></a> <!-- JQUERY JS --> 
+
+
+        
       
          <script src="../assets/js/jquery.min.js"></script>
+         <script src="https://cdn.socket.io/4.4.1/socket.io.min.js"></script>
+         
          <script src="../assets/plugins/bootstrap/js/popper.min.js"></script>
          <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
          <script src="../assets/js/jquery.sparkline.min.js"></script>
@@ -1360,6 +1379,7 @@
          <script src="../assets/plugins/notify/js/jquery.growl.js"></script>
          <script src="../assets/plugins/notify/js/rainbow.js"></script>
          <script src="../assets/plugins/notify/js/sample.js"></script>
+         <script src="../assets/js/fogos.js"></script>
          <script src="../assets/js/client.js"></script>
 
          <script>
@@ -1368,11 +1388,12 @@
             msg: "Dashboard <b>Itajaí</b>",
             position: "left"
         });
-             lista_semanal('itj')
-  lista_diario('itj')
-  lista_anual('itj')
-  lista_mensal('itj')
-  lista_novos_processos('itj')
+        var filial = 'itj';
+  lista_semanal(filial)
+  lista_diario(filial)
+  lista_anual(filial)
+  lista_mensal(filial)
+  lista_novos_processos(filial)
          </script>
          <!-- <script type="module" src="../assets/js/bundle.js"></script> -->
          <svg id="SvgjsSvg1172" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">
