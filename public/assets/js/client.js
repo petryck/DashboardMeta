@@ -146,6 +146,7 @@ function ProcessoNovo_mostrar(){
     $('.ProcessoNovo').css('top','100%');
     $('.rocket').css('top','100%');
     audio_fechamento.pause();
+    audio_fechamento.currentTime = 0
     
   }
 
