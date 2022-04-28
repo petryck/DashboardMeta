@@ -1,6 +1,8 @@
 // import { io } from "socket.io-client";
 var lista_espera_processos = [];
 var channel = io();
+var audio_fechamento = $("#audio1").get(0); 
+audio_fechamento.pause();
 
 
 channel.on('novoProcesso', (e) => {
@@ -514,6 +516,10 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
   
   
 // EXECUTAR
+
+setTimeout(() => {
+  audio_fechamento.play();
+}, 3000);
  
   menu_dias()
 
