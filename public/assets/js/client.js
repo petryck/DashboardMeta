@@ -1,8 +1,46 @@
 // import { io } from "socket.io-client";
 var lista_espera_processos = [];
 var channel = io();
-var audio_fechamento = $("#audio1").get(0); 
-audio_fechamento.pause();
+// var audio_fechamento = $("#audio1").get(0); 
+var audio_fechamento = document.getElementById('audio1')
+
+
+
+// $('#audio1').click();
+// setTimeout(() => {
+//   audio_fechamento.play();
+// }, 3000);
+
+
+
+// audio_fechamento.click()
+// audio_fechamento.play();
+// // var audio_fechamento = new Audio('../assets/fechamento.mp3');
+// audio_fechamento.pause();
+
+// var audioElement = document.createElement('audio');
+// audioElement.setAttribute('src', '../assets/fechamento.mp3');
+
+// audioElement.addEventListener('ended', function() {
+//     this.play();
+// }, false);
+
+// audioElement.addEventListener("canplay",function(){
+//     $("#length").text("Duration:" + audioElement.duration + " seconds");
+//     $("#source").text("Source:" + audioElement.src);
+//     $("#status").text("Status: Ready to play").css("color","green");
+// });
+
+// audioElement.addEventListener("timeupdate",function(){
+//     $("#currentTime").text("Current second:" + audioElement.currentTime);
+// });
+
+
+// audio_fechamento.pause();
+// setTimeout(() => {
+//  audioElement.play();
+// }, 3000);
+ 
 
 
 channel.on('novoProcesso', (e) => {
@@ -27,7 +65,7 @@ setInterval(() => {
 
 
 function executa_fila(){
-
+  audio_fechamento.play();
 
     $('#nome_vendedor_foguete').text(lista_espera_processos[0].Vendedor)
       $('#img_vendedor_foguete').attr('src', lista_espera_processos[0].Foto_Vendedor)
@@ -107,7 +145,7 @@ function ProcessoNovo_mostrar(){
     $('.ProcessoNovo').css('z-index','1');
     $('.ProcessoNovo').css('top','100%');
     $('.rocket').css('top','100%');
- 
+    audio_fechamento.pause();
     
   }
 
@@ -517,10 +555,7 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
   
 // EXECUTAR
 
-setTimeout(() => {
-  audio_fechamento.play();
-}, 3000);
- 
+
   menu_dias()
 
  
