@@ -114,7 +114,7 @@ setInterval(() => {
     location.reload(true)
   }, 7200000);
 
-var metricas_automaticas = false;
+var metricas_automaticas = true;
 
 setInterval(() => {
 

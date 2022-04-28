@@ -197,7 +197,7 @@ Left Outer JOIN
 Left Outer JOIN
   vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
 Join
-  vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 3) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
+  vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`)
   .then(result => {
 
  
@@ -208,7 +208,7 @@ Join
       // io.emit('novoProcesso',result.recordset[0]);
    
     }else{
-   
+   console.log('new_processo')
       ultimoid_processo = result.recordset[0].IdProcesso;
       io.emit('novoProcesso',result.recordset[0]);
     }
