@@ -9,9 +9,9 @@
 }
 
 .NomeResponsaveis.Vendedor{
-    max-width: 8ch;
+    /* max-width: 8ch;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
     white-space: nowrap;
     font-size: 6px;
     position: absolute;
@@ -28,9 +28,9 @@
 }
 
 .NomeResponsaveis.InsideSales{
-    max-width: 8ch;
+    /* max-width: 8ch;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: ellipsis; */
     white-space: nowrap;
     font-size: 6px;
     position: absolute;

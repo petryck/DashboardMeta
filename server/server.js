@@ -177,7 +177,7 @@ function novoProcesso(){
   Lhs.Numero_Processo,
   Lhs.IdLogistica_House as IdProcesso,
   Lhs.Data_Abertura_Processo,
-  Vnd.Nome as Vendedor,
+  LEFT(Vnd.Nome, CHARINDEX(' ', Vnd.Nome, 1) - 1) as Vendedor,
   Vnd.Foto as Foto_Vendedor,
   Ins.Nome as InsideSales,
   Ins.Foto as Foto_InsideSales,
