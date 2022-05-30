@@ -156,18 +156,34 @@ setInterval(() => {
   }, 7200000);
 
 var metricas_automaticas = true;
+var contagem_metricas = 0
 
 setInterval(() => {
 
    if(metricas_automaticas == true){
 
-    if($('.metricas_semanal').css('display') == 'none'){
-        $('.metricas_semanal').css('display', 'block')
-        $('.metricas_mensal').css('display', 'none')
-      }else{
-        $('.metricas_semanal').css('display', 'none')
-        $('.metricas_mensal').css('display', 'block')
-      }
+
+    if(contagem_metricas == 0){
+      $('.metricas').css('display', 'none')
+	    $('.metricas_semanal').css('display', 'block')
+      contagem_metricas++;
+    }else if(contagem_metricas == 1){
+      $('.metricas').css('display', 'none')
+	    $('.metricas_mensal').css('display', 'block')
+      contagem_metricas++;
+    }else if(contagem_metricas == 2){
+      $('.metricas').css('display', 'none')
+	    $('.metricas_financeiras').css('display', 'block')
+      contagem_metricas = 0;
+    }
+
+    // if($('.metricas_semanal').css('display') == 'none'){
+    //     $('.metricas_semanal').css('display', 'block')
+    //     $('.metricas_mensal').css('display', 'none')
+    //   }else{
+    //     $('.metricas_semanal').css('display', 'none')
+    //     $('.metricas_mensal').css('display', 'block')
+    //   }
    }
   
 
@@ -327,6 +343,107 @@ function menu_dias(){
     })
   }
 
+  function lista_financeiro_anual(filial){
+    $.ajax({
+      type: 'GET',
+      url: '/metricas_financeira_Anual',
+      data:{filial:filial},
+      contentType: 'application/json',
+      success: function (data) {
+        console.log(data)
+   
+
+        // $('#porcentagem_meta01').text(data.PorcentagemMeta1)
+        // if(data.PorcentagemMeta1 > 100){
+
+        //     if(data.PorcentagemMeta2 < 100){
+        //       $('#porcentagem_meta02').text(data.PorcentagemMeta2)
+        //       $('#porcentagem_meta03').text('0')
+        //     }else{
+        //       $('#porcentagem_meta03').text(data.PorcentagemMeta3)
+        //     }
+          
+        // }else{
+        //   $('#porcentagem_meta02').text('0')
+        //   $('#porcentagem_meta03').text('0')
+        // }
+
+        $('#porcentagem_meta01').text(data.PorcentagemMeta1)
+        $('#porcentagem_meta02').text(data.PorcentagemMeta2)
+        $('#porcentagem_meta03').text(data.PorcentagemMeta3)
+
+
+        $('#grafico_meta01').css('stroke-dashoffset', 300-(data.PorcentagemMeta1*3))
+        $('#grafico_meta02').css('stroke-dashoffset', 300-(data.PorcentagemMeta2*3))
+        $('#grafico_meta03').css('stroke-dashoffset', 300-(data.PorcentagemMeta3*3))
+
+        $('#porcentagem_meta_hoje01').text(data.PorcentagemMeta1Hoje)
+        $('#porcentagem_meta_hoje02').text(data.PorcentagemMeta2Hoje)
+        $('#porcentagem_meta_hoje03').text(data.PorcentagemMeta3Hoje)
+
+        $('#grafico_meta_hoje01').css('stroke-dashoffset', 300-(data.PorcentagemMeta1Hoje*3))
+        $('#grafico_meta_hoje02').css('stroke-dashoffset', 300-(data.PorcentagemMeta2Hoje*3))
+        $('#grafico_meta_hoje03').css('stroke-dashoffset', 300-(data.PorcentagemMeta3Hoje*3))
+        
+
+
+      }
+    })
+  }
+
+
+  function lista_financeiro_mensal(filial){
+    $.ajax({
+      type: 'GET',
+      url: '/metricas_financeira_Mensal',
+      data:{filial:filial},
+      contentType: 'application/json',
+      success: function (data) {
+
+
+  $('.corpo_financeiro_meta_01').html('')
+  $('.corpo_financeiro_meta_02').html('')
+  $('.corpo_financeiro_meta_03').html('')
+
+  data.forEach(element => {
+  
+
+var progressbar = ` <div class="row" style="margin-top: 11px">
+<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta1}%;background: linear-gradient(135deg, #f3e2c7 0%, #c19e67 50%, #b68d4c 51%, #e9d4b3 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta1} %</span></div>
+</div>
+
+</div>`
+
+$('.corpo_financeiro_meta_01').append(progressbar)
+
+
+var progressbar = ` <div class="row" style="margin-top: 11px">
+<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta2}%;background: linear-gradient(135deg, #e6e6e6 0%, #d9d9d9 50%, #cbcbcb 51%, #dddddd 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta2} %</span></div>
+</div>
+
+</div>`
+
+$('.corpo_financeiro_meta_02').append(progressbar)
+
+
+var progressbar = ` <div class="row" style="margin-top: 11px">
+<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta3}%;background: linear-gradient(135deg, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta3} %</span></div>
+</div>
+
+</div>`
+
+$('.corpo_financeiro_meta_03').append(progressbar)
+
+  });
+    
+    
+      }
+    
+    })
+  }
 
   function lista_mensal(filial){
     $.ajax({

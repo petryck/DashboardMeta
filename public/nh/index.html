@@ -619,7 +619,13 @@
                                  </div>
                               </div>
                               <div class="switch_section my-4"> 
-                                 <button class="btn btn-success btn-block btn_trocar_grafico" type="button">Trocar Métricas </button> 
+                                 <button class="btn btn-success btn-block btn_trocar_grafico_diaria" type="button">Semanal/Diaria</button> 
+                              </div>
+                              <div class="switch_section my-4"> 
+                                 <button class="btn btn-warning btn-block btn_trocar_grafico_mensal" type="button">Mensal </button> 
+                              </div>
+                              <div class="switch_section my-4"> 
+                                 <button class="btn btn-primary btn-block btn_trocar_grafico_financeiro" type="button">Financeira </button> 
                               </div>
                            </div>
                         </div>
@@ -1104,6 +1110,204 @@
                          </div> 
                         
                       </div>
+
+                      <div class="metricas metricas_financeiras" style="display: none;">
+                     
+                        <div class="row">
+                    
+                            <div class="col-1">
+                                <div class="card custom-card " style="margin-top: 261px;">
+                                    <div class="card-header" style="display: block;">
+                                       <center><h3 class="card-title">Mês</h3></center>
+                                    </div>
+                                    <div class="card-body pt-0 ps-0 pe-0">
+                                        <div class="row"  >
+                                         
+                                        </div>
+                                        <div class="row mes" >
+                                           <span class="text-muted fs-15 fw-semibold"> JANEIRO</span>
+                                        </div>
+                                        <div class="row mes">
+                                         <span class="text-muted fs-15 fw-semibold"> FEVEREIRO</span>
+                                        </div>
+                                        <div class="row mes" >
+                                     <span class="text-muted fs-15 fw-semibold"> MARÇO</span>
+                                        </div>
+                                        <div class="row mes" >
+                                      <span class="text-muted fs-15 fw-semibold"> ABRIL</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                           <span class="text-muted fs-15 fw-semibold"> MAIO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                            <span class="text-muted fs-15 fw-semibold"> JUNHO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                           <span class="text-muted fs-15 fw-semibold"> JULHO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                          <span class="text-muted fs-15 fw-semibold"> AGOSTO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                        <span class="text-muted fs-15 fw-semibold"> SETEMBRO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                            <span class="text-muted fs-15 fw-semibold"> OUTUBRO</span>
+                                        </div>
+                                        <div class="row mes" >
+                                            <span class="text-muted fs-15 fw-semibold"> NOVEMBRO</span>
+                                        </div>
+                                        <div class="row mes"  >
+                                           <span class="text-muted fs-15 fw-semibold"> DEZEMBRO</span>
+                                        </div>
+                                       
+                                  
+                                    </div>
+                                 </div>
+                            </div>
+                            <div class="col-10">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="card custom-card exportacao">
+                                           <div class="card-header" style="display: block;background:linear-gradient(135deg, #f3e2c7 0%,#c19e67 50%,#b68d4c 51%,#e9d4b3 100%);">
+                                              <center><h3 class="card-title">META BRONZE ANUAL</h3></center>
+                                           </div>
+                                           <div class="card-body pt-0 ps-0 pe-0">
+                                               
+                                            <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 46px">
+                                                <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                  <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                  <path id="grafico_meta01" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#caaa78" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                                </svg>
+                                                <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta01"></span>%</div>
+                                             
+                                              </div>
+
+
+
+                                              <div class="corpo_financeiro_meta_01">
+                                              
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                     
+                                     <div class="col-3">
+                                        <div class="card custom-card exportacao">
+                                           <div class="card-header" style="display: block;background:linear-gradient(135deg, #e6e6e6 0%,#d9d9d9 50%,#cbcbcb 51%,#dddddd 100%);">
+                                              <center><h3 class="card-title">META PRATA ANUAL</h3></center>
+                                           </div>
+                                           <div class="card-body pt-0 ps-0 pe-0">
+                                               
+                                            <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 46px">
+                                                <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                  <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                  <path id="grafico_meta02" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#d3d3d3" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                                </svg>
+                                                <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta02"></span>%</div>
+                                            
+                                              </div>
+
+                                              <div class="corpo_financeiro_meta_02">
+                                                
+                                              </div>
+
+                                             
+                                        
+                                         
+                                         
+                                           </div>
+                                        </div>
+                                     </div>
+                                     <div class="col-3">
+                                        <div class="card custom-card exportacao">
+                                           <div class="card-header" style="display: block;background:linear-gradient(135deg, #fceabb 0%,#fccd4d 50%,#f8b500 51%,#fbdf93 100%);">
+                                              <center><h3 class="card-title">META OURO ANUAL</h3></center>
+                                           </div>
+                                           <div class="card-body pt-0 ps-0 pe-0">
+                                               
+                                            <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 46px">
+                                                <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                  <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                  <path id="grafico_meta03" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#f9c537" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                                </svg>
+                                                <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta03"></span>%</div>
+                                              
+                                              </div>
+
+                                              <div class="corpo_financeiro_meta_03">
+                                              
+                                              </div>
+                                         
+                                           </div>
+                                        </div>
+                                     </div>
+
+                                     <div class="col-3" style="zoom: 94.5%;">
+                                       <div class="card custom-card exportacao">
+                                          <div class="card-header" style="display: block;">
+                                             <center><h3 class="card-title">METAS ATÉ HOJE</h3></center>
+                                          </div>
+                                          <div class="card-body pt-0 ps-0 pe-0">
+                                             <center><h3 class="card-title" style="margin-top: 17px;">BRONZE</h3></center>
+                                           <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 0px">
+                                               <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                 <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                 <path id="grafico_meta_hoje01" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#caaa78" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                               </svg>
+                                               <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta_hoje01"></span>%</div>
+                                            
+                                             </div>
+
+
+
+                                             <div class="corpo_financeiro_meta_hoje">
+                                             
+                                             </div>
+                                          </div>
+                                          <div class="card-body pt-0 ps-0 pe-0">
+                                             <center><h3 class="card-title" style="margin-top: 17px;">PRATA</h3></center>
+                                             <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 0px">
+                                                 <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                   <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                   <path id="grafico_meta_hoje02" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#d3d3d3" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                                 </svg>
+                                                 <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta_hoje02"></span>%</div>
+                                              
+                                               </div>
+  
+  
+  
+                                               <div class="corpo_financeiro_meta_hoje">
+                                               
+                                               </div>
+                                            </div>
+                                            <div class="card-body pt-0 ps-0 pe-0">
+                                             <center><h3 class="card-title" style="margin-top: 17px;">OURO</h3></center>
+                                             <div class="progress-circle progress-lg mx-auto" id="progress-5" data-progress="50" data-text="98" data-textclass="h1" data-color="warning" style="position: relative;width: 100%;height: 100%;margin-bottom: 0px">
+                                                 <svg viewBox="0 0 100 100" style="width: 194px;margin-left: 88px;margin-top: 22px;">
+                                                   <path d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#eee" stroke-width="2" fill-opacity="0"></path>
+                                                   <path id="grafico_meta_hoje03" d="M 50,50 m 0,-46.5 a 46.5,46.5 0 1 1 0,93 a 46.5,46.5 0 1 1 0,-93" stroke="#f9c537" stroke-width="7" fill-opacity="0" style="stroke-dasharray: 292.273, 292.273; stroke-dashoffset: 230.55px;"></path>
+                                                 </svg>
+                                                 <div class="h1 porcentagem" style="position: absolute; left: 188px; top: 113px; padding: 0px; margin: 0px; transform: translate(-50%, -50%); color: #383839;"><span id="porcentagem_meta_hoje03"></span>%</div>
+                                              
+                                               </div>
+  
+  
+  
+                                               <div class="corpo_financeiro_meta_hoje">
+                                               
+                                               </div>
+                                            </div>
+                                       </div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                        </div>
+
+                      
+                      </div>
                     
                     
                
@@ -1213,6 +1417,8 @@
   lista_anual(filial)
   lista_mensal(filial)
   lista_novos_processos(filial)
+  lista_financeiro_anual(filial)
+   lista_financeiro_mensal(filial)
          </script>
          <!-- <script type="module" src="../assets/js/bundle.js"></script> -->
          <svg id="SvgjsSvg1172" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;">

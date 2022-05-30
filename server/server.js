@@ -76,26 +76,26 @@ app.use(cors())
 app.use('/', express.static(path.join(__dirname, '../public')))
 
 
-var connection = mysql.createConnection({
-  host: "ads-con.csvfil6euj3s.sa-east-1.rds.amazonaws.com",
-  user: "ads",
-  port: "3286",
-  password: "99659819aA",
-  database: "db",
-  charset: "utf8mb4"
-});
+// var connection = mysql.createConnection({
+//   host: "ads-con.csvfil6euj3s.sa-east-1.rds.amazonaws.com",
+//   user: "ads",
+//   port: "3286",
+//   password: "99659819aA",
+//   database: "db",
+//   charset: "utf8mb4"
+// });
 
 
-connection.connect(function(err) {
+// connection.connect(function(err) {
 
-  if(err){
-    console.log('ERRO AO ACESSAR DB --> MYSQL')
-    setTimeout(incia_conexao, 2000);
-  }else{
-      console.log('CONECTADO DB --> MYSQL')
-  }
+//   if(err){
+//     console.log('ERRO AO ACESSAR DB --> MYSQL')
+//     setTimeout(incia_conexao, 2000);
+//   }else{
+//       console.log('CONECTADO DB --> MYSQL')
+//   }
 
-}); 
+// }); 
 
 // connection.incia_conexao();
 
@@ -350,7 +350,45 @@ setInterval(() => {
   // }
 
   // semana('2022','03','19')
+  app.get('/metricas_financeira_Anual', (req, res) => {
 
+    if(req.query.filial == 'itj'){
+      var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_ITJ`;
+    }else if(req.query.filial == 'nh'){
+      var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_NH`;
+    }
+          global.conn.request()
+          .query(sql)
+          .then(result => {
+        
+            res.json(result.recordset[0])
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+
+  })
+
+  app.get('/metricas_financeira_Mensal', (req, res) => {
+
+    if(req.query.filial == 'itj'){
+      var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+    }else if(req.query.filial == 'nh'){
+      var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+    }
+          global.conn.request()
+          .query(sql)
+          .then(result => {
+        
+            res.json(result.recordset)
+          })
+          .catch(err => {
+            console.log(err)
+            return err;
+          });
+
+  })
 
   app.get('/semanal', (req, res) => {
     

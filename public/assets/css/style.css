@@ -11168,7 +11168,7 @@ progress {
     flex-direction: column;
     -ms-flex-pack: center;
     justify-content: center;
-    color: #fff;
+    color: black;
     text-align: center;
     white-space: nowrap;
     border-radius: 7px;
@@ -34965,7 +34965,7 @@ body.rtl {
 
 .importacao .esquerda{
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 400;
     background-color: #ff0000 !important;
 }
 .esquerda span{
@@ -34992,7 +34992,7 @@ background-color: red;
 
 .exportacao .esquerda{
     font-size: 18px;
-    font-weight: 800;
+    font-weight: 400;
     background-color: #36cd72 !important
 }
 

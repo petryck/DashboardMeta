@@ -1093,17 +1093,30 @@ if (window.innerWidth < 992) {
 }
 
 
-$(document).on('click', '.btn_trocar_grafico', function(e){
+$(document).on('click', '.btn_trocar_grafico_diaria', function(e){
 
-
-
-	if($('.metricas_semanal').css('display') == 'none'){
+	  $('.metricas').css('display', 'none')
 	  $('.metricas_semanal').css('display', 'block')
-	  $('.metricas_mensal').css('display', 'none')
-	}else{
-	  $('.metricas_semanal').css('display', 'none')
-	  $('.metricas_mensal').css('display', 'block')
-	}
+
+  
+  
+  })
+
+  $(document).on('click', '.btn_trocar_grafico_mensal', function(e){
+
+
+	$('.metricas').css('display', 'none')
+	$('.metricas_mensal').css('display', 'block')
+  
+  
+  
+  })
+
+  $(document).on('click', '.btn_trocar_grafico_financeiro', function(e){
+
+
+	$('.metricas').css('display', 'none')
+	$('.metricas_financeiras').css('display', 'block')
   
   
   
