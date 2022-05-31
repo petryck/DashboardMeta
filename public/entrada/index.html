@@ -52,12 +52,42 @@
       //   $(this).removeClass('rgb');
       // })
 
+      localStorage.setItem('nh', false);
+      localStorage.setItem('itj', false);
 
       $(document).on('click', '.card', function(e){
         var url = $(this).data('url');
-        window.location.assign(url);
+        var item = prompt("Senha para acessar as metas", "senha de acesso");
+        if (item == null || item == "") {
+            // alert("O uso do prompt foi cancelado!");
+        } else {
+          
+            if(localStorage.getItem('itj') && localStorage.getItem('itj') == 'true' && url == '/itj'){
+              window.location.assign(url);
+
+            }else if(item == 'filialitj' && url == '/itj'){
+     
+              localStorage.setItem('itj', true);
+              window.location.assign(url);
+            }
+
+
+            if(localStorage.getItem('nh') && localStorage.getItem('nh') == 'true' && url == '/nh'){
+              window.location.assign(url);
+             
+            }else if(item == 'conline0808' && url == '/nh'){
+              localStorage.setItem('nh', true);
+              window.location.assign(url);
+            }
+
+        
+        }
+        
       })
 
+
+
+      
       
 
 
