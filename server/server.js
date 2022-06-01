@@ -60,6 +60,51 @@ sql.connect(connStr)
    .then(conn => {
     global.conn = conn
     novoProcesso()
+
+    
+    setTimeout(() => {
+      metricas_financeiro_mensal_itj()
+    }, 5000);
+
+      setTimeout(() => {
+        metricas_financeiro_anual_itj()
+      }, 10000);
+
+      setTimeout(() => {
+        metricas_financeiro_mensal_nh()
+      }, 20000);
+
+      setTimeout(() => {
+        metricas_financeiro_anual_nh()
+      }, 30000);
+
+
+
+    setInterval(() => {
+      
+      setTimeout(() => {
+        metricas_financeiro_mensal_itj()
+      }, 10000);
+
+
+      setTimeout(() => {
+        metricas_financeiro_anual_itj()
+      }, 20000);
+
+      setTimeout(() => {
+        metricas_financeiro_mensal_nh()
+      }, 30000);
+
+      setTimeout(() => {
+        metricas_financeiro_anual_nh()
+      }, 40000);
+
+
+      
+
+
+    }, 3600000);
+
    })
    .catch(err => console.log(err));
 
@@ -74,6 +119,85 @@ app.use(bodyParser.json());
 app.use(cors())
 
 app.use('/', express.static(path.join(__dirname, '../public')))
+
+
+var consulta_fananceiro_mensal_itj = []
+var consulta_fananceiro_mensal_nh = []
+
+var consulta_fananceiro_anual_itj = []
+var consulta_fananceiro_anual_nh = []
+
+async function metricas_financeiro_mensal_itj(){
+
+  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+  
+
+        global.conn.request()
+        .query(sql)
+        .then(result => {
+       
+          consulta_fananceiro_mensal_itj = result.recordset;
+        })
+        .catch(err => {
+          console.log(err)
+          return err;
+        });
+
+}
+
+async function metricas_financeiro_mensal_nh(){
+
+  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+
+        global.conn.request()
+        .query(sql)
+        .then(result => {
+     
+      
+          consulta_fananceiro_mensal_nh = result.recordset;
+        })
+        .catch(err => {
+          console.log(err)
+          return err;
+        });
+
+}
+
+async function metricas_financeiro_anual_itj(){
+
+ var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_ITJ`;
+
+        global.conn.request()
+        .query(sql)
+        .then(result => {
+        
+      
+          consulta_fananceiro_anual_itj = result.recordset[0];
+        })
+        .catch(err => {
+          console.log(err)
+          return err;
+        });
+
+}
+
+async function metricas_financeiro_anual_nh(){
+
+  var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_NH`;
+ 
+         global.conn.request()
+         .query(sql)
+         .then(result => {
+       
+          console.log('Finalizou as métricas financeiras')
+          consulta_fananceiro_anual_nh = result.recordset[0];
+         })
+         .catch(err => {
+           console.log(err)
+           return err;
+         });
+ 
+ }
 
 
 // var connection = mysql.createConnection({
@@ -353,40 +477,37 @@ setInterval(() => {
   app.get('/metricas_financeira_Anual', (req, res) => {
 
     if(req.query.filial == 'itj'){
-      var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_ITJ`;
+      
+      // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+      res.json(consulta_fananceiro_anual_itj)
     }else if(req.query.filial == 'nh'){
-      var sql = `SELECT * FROM vis_Metas_Financeiro_Anual_NH`;
+      // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+      res.json(consulta_fananceiro_anual_nh)
     }
-          global.conn.request()
-          .query(sql)
-          .then(result => {
-        
-            res.json(result.recordset[0])
-          })
-          .catch(err => {
-            console.log(err)
-            return err;
-          });
+  
 
   })
 
   app.get('/metricas_financeira_Mensal', (req, res) => {
 
     if(req.query.filial == 'itj'){
-      var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+      
+      // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+      res.json(consulta_fananceiro_mensal_itj)
     }else if(req.query.filial == 'nh'){
-      var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+      // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+      res.json(consulta_fananceiro_mensal_nh)
     }
-          global.conn.request()
-          .query(sql)
-          .then(result => {
+          // global.conn.request()
+          // .query(sql)
+          // .then(result => {
         
-            res.json(result.recordset)
-          })
-          .catch(err => {
-            console.log(err)
-            return err;
-          });
+          //   res.json(result.recordset)
+          // })
+          // .catch(err => {
+          //   console.log(err)
+          //   return err;
+          // });
 
   })
 
