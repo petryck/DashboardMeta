@@ -34,14 +34,21 @@ const connStr = {
   database: 'headcargo_conline',
   port:9322,
   server: 'CONLINE.SQL.HEADCARGO.COM.BR',
+  requestTimeout: 900000,
+  dialectOptions: {
+    options: { 
+      requestTimeout: 900000 }
+  },
   pool: {
-    max: 99999,
+    max: 900000,
     min: 0,
-    idleTimeoutMillis: 90000
+    idleTimeoutMillis: 900000
   },
   options: {
     encrypt: true, // for azure
-    trustServerCertificate: true // change to true for local dev / self-signed certs
+    trustServerCertificate: true, // change to true for local dev / self-signed certs
+    requestTimeout: 900000,
+    idleTimeoutMillis: 900000
   }
 }
 
@@ -64,7 +71,7 @@ sql.connect(connStr)
     
     setTimeout(() => {
       metricas_financeiro_mensal_itj()
-    }, 5000);
+    }, 10000);
 
       setTimeout(() => {
         metricas_financeiro_anual_itj()
@@ -72,11 +79,11 @@ sql.connect(connStr)
 
       setTimeout(() => {
         metricas_financeiro_mensal_nh()
-      }, 20000);
+      }, 30000);
 
       setTimeout(() => {
         metricas_financeiro_anual_nh()
-      }, 30000);
+      }, 10000);
 
 
 
