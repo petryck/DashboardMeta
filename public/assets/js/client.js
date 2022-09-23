@@ -68,8 +68,8 @@ function executa_fila(){
   audio_fechamento.play();
 
     $('#nome_vendedor_foguete').text(lista_espera_processos[0].Vendedor)
-      $('#img_vendedor_foguete').attr('src', lista_espera_processos[0].Foto_Vendedor)
-      $('#img_inside_foguete').attr('src', lista_espera_processos[0].Foto_InsideSales)
+      $('#img_vendedor_foguete').attr('src', 'http://cdn.conlinebr.com.br/colaboradores/'+lista_espera_processos[0].IdVendedor+'.webp')
+      $('#img_inside_foguete').attr('src', 'http://cdn.conlinebr.com.br/colaboradores/'+lista_espera_processos[0].IdInside+'.webp')
       
       $('#nome_inside_foguete').text(lista_espera_processos[0].InsideSales)
       $('#numero_processo_foguete').text(lista_espera_processos[0].Numero_Processo)
@@ -255,9 +255,12 @@ function menu_dias(){
       data:{filial:filial},
       contentType: 'application/json',
       success: function (data) {
+        console.log('aqui')
+        console.log(data)
     
         var contagem = 0;
         data.forEach(element => {
+          console.log(element.IdVendedor)
         var img_modal = '';
     if(element.Modalidade_Processo == 1){
       img_modal = 'airPlaneIcon';
@@ -271,9 +274,10 @@ function menu_dias(){
           <div class="row">
              <div class="col-xl-1 col-lg-1 feature">
 
-              
-                <div class="fa-lg  border mb-3" style="display: block;background-image: url(${element.Foto_Vendedor});background-size: cover;width: 79px;height: 79px;"> </div>
-                <div class=" fa-lg  border  mb-3" style="display: block;background-image: url(${element.Foto_InsideSales});background-size: cover;width: 79px;height: 79px;"> </div>
+             
+
+                <div class="fa-lg  border mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/colaboradores/${element.IdVendedor}.webp');background-size: cover;width: 79px;height: 79px;"> </div>
+                <div class=" fa-lg  border  mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/colaboradores/${element.IdInside}.webp');background-size: cover;width: 79px;height: 79px;"> </div>
              </div>
              
              <div class="col-xl-10 col-lg-9" style="margin-left: 35px;">

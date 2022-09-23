@@ -306,6 +306,8 @@ function novoProcesso(){
   .query(`SELECT TOP 1
   FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
   Lhs.Numero_Processo,
+  Lhs.IdVendedor as IdVendedor,
+  Ins.IdPessoa as IdInside,
   Lhs.IdLogistica_House as IdProcesso,
   Lhs.Data_Abertura_Processo,
   LEFT(Vnd.Nome, CHARINDEX(' ', Vnd.Nome, 1) - 1) as Vendedor,
@@ -662,6 +664,8 @@ if(req.query.filial == 'itj'){
       FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
       Lhs.Numero_Processo,
       Lhs.Data_Abertura_Processo,
+      Lhs.IdVendedor as IdVendedor,
+      Ins.IdPessoa as IdInside,
       Vnd.Nome as Vendedor,
       Vnd.Foto as Foto_Vendedor,
       Ins.Nome as InsideSales,
