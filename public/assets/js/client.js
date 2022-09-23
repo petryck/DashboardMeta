@@ -276,8 +276,8 @@ function menu_dias(){
 
              
 
-                <div class="fa-lg  border mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/colaboradores/${element.IdVendedor}.webp');background-size: cover;width: 79px;height: 79px;"> </div>
-                <div class=" fa-lg  border  mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/colaboradores/${element.IdInside}.webp');background-size: cover;width: 79px;height: 79px;"> </div>
+                <div class="fa-lg  border mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/consultaColab?id=${element.IdVendedor}');background-size: cover;width: 79px;height: 79px;"> </div>
+                <div class=" fa-lg  border  mb-3" style="display: block;background-image: url('http://cdn.conlinebr.com.br/consultaColab?id=${element.IdInside}');background-size: cover;width: 79px;height: 79px;"> </div>
              </div>
              
              <div class="col-xl-10 col-lg-9" style="margin-left: 35px;">
