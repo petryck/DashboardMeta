@@ -68,8 +68,8 @@ function executa_fila(){
   audio_fechamento.play();
   'http://cdn.conlinebr.com.br/consultaColab?id=${element.IdVendedor}'
     $('#nome_vendedor_foguete').text(lista_espera_processos[0].Vendedor)
-      $('#img_vendedor_foguete').attr('src', 'http://cdn.conlinebr.com.br/consultaColab?id='+lista_espera_processos[0].IdInside.IdVendedor+'.webp')
-      $('#img_inside_foguete').attr('src', 'http://cdn.conlinebr.com.br/consultaColab?id='+lista_espera_processos[0].IdInside.IdInside+'.webp')
+      $('#img_vendedor_foguete').attr('src', 'http://cdn.conlinebr.com.br/consultaColab?id='+lista_espera_processos[0].IdVendedor)
+      $('#img_inside_foguete').attr('src', 'http://cdn.conlinebr.com.br/consultaColab?id='+lista_espera_processos[0].IdInside)
       
       $('#nome_inside_foguete').text(lista_espera_processos[0].InsideSales)
       $('#numero_processo_foguete').text(lista_espera_processos[0].Numero_Processo)
