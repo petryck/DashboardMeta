@@ -395,6 +395,8 @@ function menu_dias(){
     })
   }
 
+  
+
 
   function lista_financeiro_mensal(filial){
     $.ajax({
