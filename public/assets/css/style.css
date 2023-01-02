@@ -34966,11 +34966,18 @@ body.rtl {
 .importacao .esquerda{
     font-size: 18px;
     font-weight: 400;
-    background-color: #ff0000 !important;
+    background-color: #49E4E8 !important;
 }
+
+.clientes .esquerda{
+    font-size: 18px;
+    font-weight: 400;
+    background-color: #388863 !important;
+}
+
 .esquerda span{
     position: absolute;
-    margin-left: 149px;
+    margin-left: 105px;
 }
 
 .mes span{
@@ -34993,7 +35000,7 @@ background-color: red;
 .exportacao .esquerda{
     font-size: 18px;
     font-weight: 400;
-    background-color: #36cd72 !important
+    background-color: #0195A1 !important
 }
 
 @media (min-width: 992px) {
@@ -70981,7 +70988,7 @@ html [type=button],
 .hoje_lateral{
     color: white;
     margin-left: -40px;
-    background-color: #ff0000 !important;
+    background-color: #3c3c3c !important;
 }
 
 .avatar_operacional{

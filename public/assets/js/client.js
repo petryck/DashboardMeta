@@ -263,11 +263,11 @@ function menu_dias(){
           console.log(element.IdVendedor)
         var img_modal = '';
     if(element.Modalidade_Processo == 1){
-      img_modal = 'airPlaneIcon';
+      img_modal = 'icon-aviao';
     }else if(element.Modalidade_Processo == 2){
-      img_modal = 'shipIcon';
+      img_modal = 'icon-ship';
     }else if(element.Modalidade_Processo == 3){
-      img_modal = 'shipIcon';
+      img_modal = 'icon-ship';
     }
 
           var corpo = `<div class="card-body" style="padding-bottom: 23px;padding-top: 7px;">
@@ -283,7 +283,7 @@ function menu_dias(){
              <div class="col-xl-10 col-lg-9" style="margin-left: 35px;">
                 <div class="mt-1">
                   
-                  <img style="width: 39px;position: absolute;right: 177px;top: 1px;" src="../assets/images/svgs/${img_modal}.svg" alt="">
+                  <img style="width: 39px;position: absolute;right: 177px;top: 1px;" src="../assets/images/pngs/${img_modal}.png" alt="">
                    <div class="corpo_fechamento" style="position: absolute;bottom: 103px;font-size: 24px;">
                       <p class="mb-0"><b style="font-size: 18px;">Sales </b> <br> 
                       ${element.Vendedor}
@@ -415,35 +415,23 @@ function menu_dias(){
   
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta1}%;background: linear-gradient(135deg, #f3e2c7 0%, #c19e67 50%, #b68d4c 51%, #e9d4b3 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta1} %</span></div>
+<div class="progress" style="width: 88%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta1}%;background-color: #3cb8bb !important; aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span style="margin-left: 214px;">${element.PorcentagemMeta1} %</span></div>
 </div>
-
 </div>`
 
 $('.corpo_financeiro_meta_01').append(progressbar)
 
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta2}%;background: linear-gradient(135deg, #e6e6e6 0%, #d9d9d9 50%, #cbcbcb 51%, #dddddd 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta2} %</span></div>
+<div class="progress" style="width: 88%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta2}%;background-color: #4cbb87 !important; aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span style="margin-left: 214px;">${element.PorcentagemMeta2} %</span></div>
 </div>
-
 </div>`
 
 $('.corpo_financeiro_meta_02').append(progressbar)
 
-
-var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${element.PorcentagemMeta3}%;background: linear-gradient(135deg, #fceabb 0%, #fccd4d 50%, #f8b500 51%, #fbdf93 100%);" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.PorcentagemMeta3} %</span></div>
-</div>
-
-</div>`
-
-$('.corpo_financeiro_meta_03').append(progressbar)
-
-  });
+});
     
     
       }
@@ -459,18 +447,16 @@ $('.corpo_financeiro_meta_03').append(progressbar)
       contentType: 'application/json',
       success: function (data) {
   var mes_nomes = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL", "AGO", "SET", "OUT", "NOV", "DEZ"]
-   
-  
   
   $('.corpo_grafico_impo_aerea').html('')
   $('.corpo_grafico_impo_maritima').html('')
   $('.corpo_grafico_expo_aerea').html('')
   $('.corpo_grafico_expo_maritima').html('')
+  $('.corpo_grafico_cliente_ativo').html('')
   data.forEach(element => {
-  
-
+ 
   var progressbar = ` <div class="row" style="margin-top: 11px">
-                        <div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+                        <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
                             <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IA*100)/element.IA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_IA}%</span></div>
                         
                             </div>
@@ -480,9 +466,8 @@ $('.corpo_financeiro_meta_03').append(progressbar)
   
 $('.corpo_grafico_impo_aerea').append(progressbar)
 
-
 var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+<div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
     <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IM*100)/element.IM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_IM}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.IM+'/'+element.IM_Meta}</span>
@@ -492,7 +477,7 @@ $('.corpo_grafico_impo_maritima').append(progressbar)
 
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+<div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
     <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EA*100)/element.EA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_EA}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.EA+'/'+element.EA_Meta}</span>
@@ -502,13 +487,22 @@ $('.corpo_grafico_expo_aerea').append(progressbar)
 
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
-<div class="progress" style="width: 69%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+<div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
     <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EM*100)/element.EM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_EM}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.EM+'/'+element.EM_Meta}</span>
 </div>`
 
 $('.corpo_grafico_expo_maritima').append(progressbar)
+
+var progressbar = ` <div class="row" style="margin-top: 11px">
+<div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.Clientes*100)/element.Clientes_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_Clientes}%</span></div>
+</div>
+<span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.Clientes+'/'+element.Clientes_Meta}</span>
+</div>`
+
+$('.corpo_grafico_cliente_ativo').append(progressbar)
 
   });
     
@@ -531,13 +525,36 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
     $('#porcentagem_anual_em').text(data[0].Porcentagem_EM)
     $('#porcentagem_anual_ia').text(data[0].Porcentagem_IA)
     $('#porcentagem_anual_im').text(data[0].Porcentagem_IM)
+    $('#porcentagem_anual_clientes').text(data[0].Porcentagem_Clientes)
   
-    
+    var porcentagem_ia = data[0].Porcentagem_IA
+    var porcentagem_ea = data[0].Porcentagem_EA
+    var porcentagem_im = data[0].Porcentagem_IM
+    var porcentagem_em = data[0].Porcentagem_EM
+    var porcentagem_cliente = data[0].Porcentagem_Clientes
+
+    if (porcentagem_ia > 100) {
+      porcentagem_ia = 100
+    }
+    if (porcentagem_ea > 100) {
+      porcentagem_ea = 100
+    } 
+    if (porcentagem_im > 100) {
+      porcentagem_im = 100
+    } 
+    if (porcentagem_em > 100) {
+      porcentagem_em = 100
+    } 
+    if (porcentagem_cliente > 100) {
+      porcentagem_cliente = 100
+    } 
   
-    $('#grafico_ea').css('stroke-dashoffset', 300-(data[0].Porcentagem_EA*3))
-    $('#grafico_em').css('stroke-dashoffset', 300-(data[0].Porcentagem_EM*3))
-    $('#grafico_ia').css('stroke-dashoffset', 300-(data[0].Porcentagem_IA*3))
-    $('#grafico_im').css('stroke-dashoffset', 300-(data[0].Porcentagem_IM*3))
+    $('#grafico_ea').css('stroke-dashoffset', 300-(porcentagem_ea*3))
+    $('#grafico_em').css('stroke-dashoffset', 300-(porcentagem_em*3))
+    $('#grafico_ia').css('stroke-dashoffset', 300-(porcentagem_ia*3))
+    $('#grafico_im').css('stroke-dashoffset', 300-(porcentagem_im*3))
+    $('#grafico_cliente').css('stroke-dashoffset', 300-(porcentagem_cliente*3))
+
   
   
     
@@ -681,5 +698,3 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
 
 
   menu_dias()
-
- 
