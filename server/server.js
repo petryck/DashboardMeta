@@ -124,7 +124,7 @@ var consulta_fananceiro_anual_itj = [];
 var consulta_fananceiro_anual_nh = [];
 
 async function metricas_financeiro_mensal_itj() {
-  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ`;
+  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_ITJ order by Mes`;
 
   global.conn
     .request()
@@ -139,7 +139,7 @@ async function metricas_financeiro_mensal_itj() {
 }
 
 async function metricas_financeiro_mensal_nh() {
-  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+  var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH order by Mes`;
 
   global.conn
     .request()
