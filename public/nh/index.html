@@ -2137,19 +2137,19 @@
       <script src="../assets/js/client.js"></script>
 
       <script>
-        // console.log(localStorage.getItem('itj'))
+        // console.log(localStorage.getItem('nh'))
 
-        if (localStorage.getItem("itj") == "true") {
+        if (localStorage.getItem("nh") == "true") {
         } else {
           window.location.assign("/");
         }
 
         notif({
           type: "warning",
-          msg: "Dashboard <b>Itajaí</b>",
+          msg: "Dashboard <b>Novo Hamburgo</b>",
           position: "left",
         });
-        var filial = "itj";
+        var filial = "nh";
         lista_semanal(filial);
         lista_diario(filial);
         lista_anual(filial);
