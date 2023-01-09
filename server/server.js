@@ -280,6 +280,8 @@ function novoProcesso() {
   Case
     When Fnc.IdEmpresa = 1 Then 'itj'
     When Fnc.IdEmpresa = 3 Then 'nh'
+    When Fnc.IdEmpresa = 4 Then 'sp'
+    When Fnc.IdEmpresa = 5 Then 'cwb'
   End as Empresa
 From
   mov_Logistica_House Lhs
@@ -332,6 +334,9 @@ app.get("/nh", (req, res) => {
 app.get("/sp", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/sp/index.html"));
 });
+app.get("/cwb", (req, res) => {
+  res.sendFile(path.join(__dirname, "../public/cwb/index.html"));
+});
 app.get("/update", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/update/index.html"));
 });
@@ -367,6 +372,32 @@ app.get("/diario", (req, res) => {
       .request()
       .query(
         `SELECT * FROM vis_Metas_Diaria_NH WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`
+      )
+      .then((result) => {
+        res.json(result.recordset[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "sp") {
+    global.conn
+      .request()
+      .query(
+        `SELECT * FROM vis_Metas_Diaria_SP WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`
+      )
+      .then((result) => {
+        res.json(result.recordset[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "cwb") {
+    global.conn
+      .request()
+      .query(
+        `SELECT * FROM vis_Metas_Diaria_CWB WHERE Dia_Abertura = ${day} AND Mes_Abertura = ${month} AND Ano_Abertura = ${year}`
       )
       .then((result) => {
         res.json(result.recordset[0]);
@@ -439,6 +470,12 @@ app.get("/metricas_financeira_Anual", (req, res) => {
   } else if (req.query.filial == "nh") {
     // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
     res.json(consulta_fananceiro_anual_nh);
+  } else if (req.query.filial == "sp") {
+    // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+    res.json(consulta_fananceiro_anual_itj);
+  } else if (req.query.filial == "cwb") {
+    // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+    res.json(consulta_fananceiro_anual_itj);
   }
 });
 
@@ -449,6 +486,12 @@ app.get("/metricas_financeira_Mensal", (req, res) => {
   } else if (req.query.filial == "nh") {
     // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
     res.json(consulta_fananceiro_mensal_nh);
+  } else if (req.query.filial == "sp") {
+    // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+    res.json(consulta_fananceiro_mensal_itj);
+  } else if (req.query.filial == "cwb") {
+    // var sql = `SELECT * FROM vis_Metas_Financeiro_Mensal_NH`;
+    res.json(consulta_fananceiro_mensal_itj);
   }
   // global.conn.request()
   // .query(sql)
@@ -508,6 +551,32 @@ app.get("/semanal", (req, res) => {
         console.log(err);
         return err;
       });
+  } else if (req.query.filial == "sp") {
+    global.conn
+      .request()
+      .query(
+        `SELECT * FROM vis_Metas_Semanal_SP WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`
+      )
+      .then((result) => {
+        res.json(result.recordset[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "cwb") {
+    global.conn
+      .request()
+      .query(
+        `SELECT * FROM vis_Metas_Semanal_CWB WHERE Semana_Abertura = ${semana} AND Ano_Abertura = ${year}`
+      )
+      .then((result) => {
+        res.json(result.recordset[0]);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
   }
 });
 
@@ -534,6 +603,28 @@ app.get("/mensal", (req, res) => {
         console.log(err);
         return err;
       });
+  } else if (req.query.filial == "sp") {
+    global.conn
+      .request()
+      .query(`SELECT * FROM vis_Metas_Mensal_SP`)
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "cwb") {
+    global.conn
+      .request()
+      .query(`SELECT * FROM vis_Metas_Mensal_CWB`)
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
   }
 });
 
@@ -553,6 +644,28 @@ app.get("/anual", (req, res) => {
     global.conn
       .request()
       .query(`SELECT * FROM vis_Metas_Anual_NH`)
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "sp") {
+    global.conn
+      .request()
+      .query(`SELECT * FROM vis_Metas_Anual_SP`)
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "cwb") {
+    global.conn
+      .request()
+      .query(`SELECT * FROM vis_Metas_Anual_CWB`)
       .then((result) => {
         res.json(result.recordset);
       })
@@ -624,6 +737,72 @@ app.get("/ultimos", (req, res) => {
       vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
     Join
       vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 3) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`
+      )
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "sp") {
+    global.conn
+      .request()
+      .query(
+        `SELECT TOP 4
+      FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
+      Lhs.Numero_Processo,
+      Lhs.Data_Abertura_Processo,
+      Vnd.Nome as Vendedor,
+      Vnd.Foto as Foto_Vendedor,
+      Ins.Nome as InsideSales,
+      Ins.Foto as Foto_InsideSales,
+      Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+    From
+      mov_Logistica_House Lhs
+    JOIN
+      mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
+    Left Outer JOIN
+      vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
+    Left Outer JOIN
+      mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
+    Left Outer JOIN
+      vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
+    Join
+      vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 4) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`
+      )
+      .then((result) => {
+        res.json(result.recordset);
+      })
+      .catch((err) => {
+        console.log(err);
+        return err;
+      });
+  } else if (req.query.filial == "cwb") {
+    global.conn
+      .request()
+      .query(
+        `SELECT TOP 4
+      FORMAT(Lhs.Data_Abertura_Processo , 'dd/MM/yyyy HH:mm') as data_Abertura_Convertido,
+      Lhs.Numero_Processo,
+      Lhs.Data_Abertura_Processo,
+      Vnd.Nome as Vendedor,
+      Vnd.Foto as Foto_Vendedor,
+      Ins.Nome as InsideSales,
+      Ins.Foto as Foto_InsideSales,
+      Lms.Modalidade_Processo /*Aereo / MAritimo / Terrestre*/
+    From
+      mov_Logistica_House Lhs
+    JOIN
+      mov_Logistica_Master Lms on Lms.IdLogistica_Master = Lhs.IdLogistica_Master
+    Left Outer JOIN
+      vis_Funcionario Vnd on Vnd.IdPessoa = Lhs.IdVendedor
+    Left Outer JOIN
+      mov_Projeto_Atividade_Responsavel Par on Par.IdProjeto_Atividade = Lhs.IdProjeto_Atividade and (Par.IdPapel_Projeto = 12)
+    Left Outer JOIN
+      vis_Funcionario Ins on Ins.IdPessoa = Par.IdResponsavel 
+    Join
+      vis_Funcionario Fnc on Fnc.IdPessoa = Lhs.IdVendedor and (Fnc.IdEmpresa = 5) WHERE Lhs.Agenciamento_Carga = 1 ORDER BY Lhs.Data_Abertura_Processo DESC`
       )
       .then((result) => {
         res.json(result.recordset);

@@ -32,6 +32,14 @@
           <p>Métricas e informaçoes sobre metas da filial de São Paulo</p>
         </div>
     </div>
+    <div data-url="/cwb" class="card">
+      <div class="card-image card4"></div>
+      <div class="card-text card4">
+        <span class="date">Acessar</span>
+        <h2>Curitiba</h2>
+        <p>Métricas e informaçoes sobre metas da filial de Curitiba</p>
+      </div>
+  </div>
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.js"></script>
    
@@ -77,6 +85,22 @@
              
             }else if(item == 'conline0808' && url == '/nh'){
               localStorage.setItem('nh', true);
+              window.location.assign(url);
+            }
+
+            if(localStorage.getItem('sp') && localStorage.getItem('sp') == 'true' && url == '/sp'){
+              window.location.assign(url);
+             
+            }else if(item == 'filialsp' && url == '/sp'){
+              localStorage.setItem('sp', true);
+              window.location.assign(url);
+            }
+
+            if(localStorage.getItem('cwb') && localStorage.getItem('cwb') == 'true' && url == '/cwb'){
+              window.location.assign(url);
+             
+            }else if(item == 'filialcwb' && url == '/cwb'){
+              localStorage.setItem('cwb', true);
               window.location.assign(url);
             }
 

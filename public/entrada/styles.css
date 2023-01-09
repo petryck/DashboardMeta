@@ -145,3 +145,18 @@ body {
 .card-stats.card3 {
   background: rgb(0, 189, 63);
 }
+/*card4*/
+.card-image.card4 {
+  background: linear-gradient(#fff0 0%, #fff0 70%, #1d1d1d 100%),url("https://www.momondo.com.br/discover/wp-content/uploads/sites/282/2016/05/ca2eb100-7b61-3261-b4a1-cf3bf8d4d5c8.jpg");
+  background-size: cover;
+}
+.card-text.card4 .date {
+  color: rgb(0, 76, 189);
+}
+.card-stats.card4 .border {
+  border-left: 1px solid rgb(0, 76, 189);
+  border-right: 1px solid rgb(0, 76, 189);
+}
+.card-stats.card4 {
+  background: rgb(0, 76, 189);
+}
