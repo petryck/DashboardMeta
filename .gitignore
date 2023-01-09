@@ -76,3 +76,4 @@ typings/
 .fusebox/
 public/bundle.js
 public/bundle.js
+public/assets/js/bundle.js
