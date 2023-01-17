@@ -439,6 +439,11 @@ $('.corpo_financeiro_meta_02').append(progressbar)
     })
   }
 
+  function MathNumberRound(number){
+    var decimal = number.toFixed(2);
+    return decimal;
+    }
+
   function lista_mensal(filial){
     $.ajax({
       type: 'GET',
@@ -457,7 +462,7 @@ $('.corpo_financeiro_meta_02').append(progressbar)
  
   var progressbar = ` <div class="row" style="margin-top: 11px">
                         <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-                            <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IA*100)/element.IA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_IA}%</span></div>
+                            <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IA*100)/element.IA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${MathNumberRound(element.Porcentagem_IA)}%</span></div>
                         
                             </div>
                             <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.IA+'/'+element.IA_Meta}</span>
@@ -468,7 +473,7 @@ $('.corpo_grafico_impo_aerea').append(progressbar)
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
 <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IM*100)/element.IM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_IM}%</span></div>
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.IM*100)/element.IM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${MathNumberRound(element.Porcentagem_IM)}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.IM+'/'+element.IM_Meta}</span>
 </div>`
@@ -478,7 +483,7 @@ $('.corpo_grafico_impo_maritima').append(progressbar)
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
 <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EA*100)/element.EA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_EA}%</span></div>
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EA*100)/element.EA_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${MathNumberRound(element.Porcentagem_EA)}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.EA+'/'+element.EA_Meta}</span>
 </div>`
@@ -488,7 +493,7 @@ $('.corpo_grafico_expo_aerea').append(progressbar)
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
 <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EM*100)/element.EM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_EM}%</span></div>
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.EM*100)/element.EM_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${MathNumberRound(element.Porcentagem_EM)}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.EM+'/'+element.EM_Meta}</span>
 </div>`
@@ -497,7 +502,7 @@ $('.corpo_grafico_expo_maritima').append(progressbar)
 
 var progressbar = ` <div class="row" style="margin-top: 11px">
 <div class="progress" style="width: 65%;padding: 0;margin: 0;margin-left: 32px;height: 31px;">
-    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.Clientes*100)/element.Clientes_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${element.Porcentagem_Clientes}%</span></div>
+    <div class="progress-bar esquerda" role="progressbar" style="width: ${((element.Clientes*100)/element.Clientes_Meta)}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"><span>${MathNumberRound(element.Porcentagem_Clientes)}%</span></div>
 </div>
 <span class="MetaEscrito" style="font-size: 16px;font-weight: 600;margin-top: 4px;margin-left: -5px;width: auto;">${element.Clientes+'/'+element.Clientes_Meta}</span>
 </div>`
